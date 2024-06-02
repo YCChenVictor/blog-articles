@@ -2,17 +2,13 @@
 
 ## Purpose
 
-To acquire the skills and knowledge necessary to design, develop, and utilize digital tools and applications to solve problems and improve efficiency in various domains.
+To help me develop good websites.
 
 ## Concept
 
-Software is essentially a collection of instructions and data that dictates the actions and behavior of a computer system. These instructions, typically written in a programming language, outline the steps the computer should follow to perform specific tasks, while the data provides the necessary information for these tasks to be executed. Together, they serve as the guiding force behind the computer's operations, enabling it to process information, run applications, and interact with users or other systems. In essence, software acts as the bridge between users and the hardware components of a computer, translating human-readable commands and tasks into machine-executable instructions. Without software, computers would be inert machines devoid of functionality, incapable of carrying out the myriad tasks they are commonly used for in today's digital age.
-
 ### Fundamental Knowledge
 
-#### Complexity
-
-Complexity is a fundamental characteristic of systems, phenomena, and processes that exhibit intricate interconnections, dependencies, and behaviors. It involves the study and understanding of intricate patterns, emergent properties, and nonlinear dynamics, challenging traditional reductionist approaches and requiring holistic perspectives to unravel its multifaceted nature. For more information, please refer to [complexity](/blog/software/dsa/complexity).
+[complexity](/blog/concept/complexity)
 
 #### Data Structures and Algorithms
 

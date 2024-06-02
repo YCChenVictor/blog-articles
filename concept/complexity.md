@@ -1,8 +1,8 @@
-# Title
+# Complexity
 
 ## Purpose
 
-With concept of complexity, we can evaluate solution for a problem before diving in.
+With concept of complexity, we can evaluate a solution.
 
 ## How?
 
@@ -16,79 +16,38 @@ However, in real world problems, precise function to describe the total time of 
 
 #### Asymptotic Notations
 
-There are commonly used notations in computer science, such as big-O (O), big-theta (Θ), and big-omega (Ω), which are used to describe and analyze the time or space complexity of algorithms. For more detailed definitions and explanations of these notations, I recommend referring to reputable academic sources available online and we only focus on the defination of industry here.
+There are commonly used notations in computer science, such as big-O (O), big-theta (Θ), and big-omega (Ω), which are used to describe and analyze the time or space complexity of algorithms. For more detailed definitions and explanations of these notations, I recommend referring to reputable academic sources available online and we only focus on the definition of industry here.
 
-The defination of **O** in industry is the same as the defination of **Θ** in academia; that is
+The definition of **O** in industry is the same as the definition of **Θ** in academia; that is
 
-$\Theta(g(n)) = \{ f(n) | \exists c_0, c_1, n_0 > 0 \forall n > n_0, s.t. 0 \leq c_0g(n) \leq f(n) \leq c_1g(n) \}$
+$\Theta(g(n)) = \{ f(n) | \ \exists \ c_0, c_1, n_0 > 0 \ \forall n > n_0, \ s.t. \ 0 \leq c_0g(n) \leq f(n) \leq c_1g(n) \}$
 
-Then f(n) is an element of $$\Theta$$ of g(n), which is what industry care about ($$O$$, big-O); for example, $2x + 100$ is an element of $\Theta(x)$; then we can use $x$ to describe the complexity of $2x + 100$. The following plot demonstrates that $$2x + 100$$ is wrapped by $$3x$$ and $$x$$ after $$x > 100$$
+Then f(n) is an element of $\Theta$ of g(n), which is what industry care about ($O$, big-O); for example, $2x + 100$ is an element of $\Theta(x)$; then we can use $x$ to describe the complexity of $2x + 100$. The following plot demonstrates that $2x + 100$ is wrapped by $$3x$$ and $$x$$ after $x > 3$
 
-<canvas id="big-o-graph" width="400" height="200" class='bg-white'></canvas>
-
-<script>
-	const xValues = [];
-	const y1Values = [];
-	const y2Values = [];
-	const y3Values = [];
-
-	for (let x = 0; x <= 300; x++) {
-		xValues.push(x);
-		y1Values.push(3*x);
-		y2Values.push(x);
-		y3Values.push(2*x+100);
-	}
-
-	const ctx = document.getElementById("big-o-graph").getContext("2d");
-
-	const myChart = new Chart(ctx, {
-		type: "line",
-		data: {
-			labels: xValues,
-			datasets: [
-				{
-					label: "y = 3x",
-					data: y1Values,
-					borderColor: "red",
-					fill: false
-				},
-				{
-					label: "y = x",
-					data: y2Values,
-					borderColor: "blue",
-					fill: false
-				},
-				{
-					label: "y = 2x+100",
-					data: y3Values,
-					borderColor: "green",
-					fill: false
-				}
-			]
-		},
-		options: {
-      plugins: {
-        customCanvasBackgroundColor: {
-          color: 'lightGreen',
-        }
-      }
-    }
-	});
-</script>
+```mermaid
+xychart-beta
+    title "Function Graphs"
+    x-axis [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    y-axis "y-value" 0 --> 40
+    line "y = x" [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    line "y = 3x" [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
+    line "y = 2x + 3" [3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23]
+```
 
 #### Notation Simplification
 
 Based on the defination, we know that the big O of
 
-* $$2x + 100$$ is $$2x$$ and also $$x$$
-* $$2x^2 + x$$ is $$x^2$$ because of $$ \exists \ a, b > 0 \ s.t \ ax^2 < 2x^2 + x < bx^2 \ \forall x>0$$
+* $2x + 100$ is $2x$ and also $x$
+* $2x^2 + x$ is $x^2$ because of
+  $$ \exists \ a, b > 0 \ s.t \ ax^2 < 2x^2 + x < bx^2 \ \forall x>0$$
 
 That is, all the constant number can be ignored.
 
-* $$O(x + a) = O(x)$$, where a is constant
-* $$O(x - a) = O(x)$$, where a is constant
-* $$O(ax) = O(x)$$, where a is constant
-* $$O(x/a) = O(x)$$, where a is constant
+* $O(x + a) = O(x)$, where a is constant
+* $O(x - a) = O(x)$, where a is constant
+* $O(ax) = O(x)$, where a is constant
+* $O(x/a) = O(x)$, where a is constant
 
 ### Time Complexity
 
@@ -127,7 +86,6 @@ The meaning of `Space complexity = O(n)` is that the space taken by the algorith
   * Picks elements from arrayB, each pick = O(1)
 * Space complexity = O(1)
   * Only need a space for i => O(1)
-
 
 #### Iteration in An Iteration
 
