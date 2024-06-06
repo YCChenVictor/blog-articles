@@ -10,15 +10,10 @@ To help me develop good websites.
 
 * [complexity](/concept/complexity)
 * [Data Structures and Algorithms (DSA)](data-structure-and-algorithm)
-
-#### System Design
-
-System design involves creating a blueprint for the structure and organization of a software system, considering factors such as architecture, modules, interfaces, and data flow. It aims to transform requirements into an efficient and scalable solution that meets the desired goals and objectives of the system. For more information, please refer to [system design](/blog/software/system-design/main).
-
-#### Programming Style
-
-* Object-oriented design is a fundamental aspect of software development, emphasizing the creation of elegant and maintainable code through the organization of classes and methods to solve problems or represent real-life entities. By applying object-oriented principles, developers can achieve modularity, reusability, and improved quality in their software systems. For more information, please refer to [object oriented design](/blog/software/ood/main).
-* [Functional Programming]
+* [system design](system-design)
+* Programming Style
+  * [object oriented design](/blog/software/ood/main)
+  * [Functional Programming]()
 
 #### Refactor
 
