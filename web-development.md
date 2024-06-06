@@ -8,11 +8,8 @@ To help me develop good websites.
 
 ### Fundamental Knowledge
 
-[complexity](/blog/concept/complexity)
-
-#### Data Structures and Algorithms
-
-[Data Structures and Algorithms (DSA)](/blog/software/dsa/main) are essential foundations in software development, providing the tools and techniques to organize and manipulate data efficiently, optimize code performance, and solve complex problems in a systematic and scalable manner. Mastery of DSA enables developers to design robust software solutions, improve algorithmic efficiency, and create optimized code for various applications and domains.
+* [complexity](/concept/complexity)
+* [Data Structures and Algorithms (DSA)](data-structure-and-algorithm)
 
 #### System Design
 
