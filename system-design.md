@@ -2,11 +2,11 @@
 
 ## Purpose
 
-System design is essential to ensure that a software system is well-structured, efficient, and capable of meeting its intended goals and requirements, providing a roadmap for the development process and enabling successful implementation.
+System design is essential to ensure that a software is well-structured, efficient, and capable of meeting its intended goals and requirements, providing a roadmap for the development process and enabling successful implementation.
 
 ## Concept
 
-In this section, I will provide two kinds of designs, designing whole system and designing algorithm.
+In this section, there are two kinds of designs, designing whole system and designing algorithm.
 
 ### Design Whole System
 
@@ -71,7 +71,8 @@ Ok, based on above design, we now should have components, user interface, URL sh
 
 Any user interface related frontend and backend, we should use [MVC structure]. That is, we break Create, Read, Update, Destroy (CRUD) of links and CRUD of users into [RESTful] design, which is going to return us methods mapping GET (Read), POST (Create), PUT (Update), DELETE (Destroy).
 
-Now we can successfully CRUD the data. The next step is to return desired services for users with [design pattern](/blog/software/design-pattern/main).
+Now we can successfully CRUD the data. The next step is to return desired services for users with [design pattern].
+
 * URL shortening service should use singleton pattern to avoid multiple shortened URL to be created for one URL.
 * Analytics service should use observer or strategy pattern
   * If the calculations take time, we can use observer pattern to trigger analytics data calculations right after key information updates. But I think it will not be the case in this system.
@@ -88,53 +89,28 @@ Sometimes we do not need to re-design a system but we want to solve an algorithm
 * Step 3: Get Real, try to write down pseudocode first and even start compose the functions.
 * Step 4: Solve Problems, during step 3, there will be more problems occurs and keep iterating.
 
-### Afterward Solutions
+### Post-Event Solutions
 
 As the traffic increases, we may need some common solutions to solve this issue.
 
-#### Scalability
-
-There are two ways of scalability; one is horizontal, the other is vertical. For more information, please refer to [scalability](/blog/software/system-design/scalability).
-
-#### Distribute System
-
-A distributed system refers to a network of interconnected computers that work together to solve a common problem or perform a coordinated task. It involves the distribution of resources, data, and processing across multiple machines, enabling collaboration and scalability beyond the capabilities of a single system. For more information, please refer to [distributed system](/blog/software/system-design/distributed-system).
-
-#### cloud computing
-
-[cloud computing]
-
-#### Failures
-
-* Concept: Systems are prone to failures, and it's crucial to plan for them. Identify potential points of failure in your system and design appropriate measures to handle them.
-* Example
+* [scalability]
+* [distributed system]
+* [cloud computing]
+* failures: Systems are prone to failures, and it's crucial to plan for them. Identify potential points of failure in your system and design appropriate measures to handle them.
   * Redundancy
   * Fault tolerance
   * Error handling
-  * Disaster recovery strategies.
-
-#### Availability and Reliability
-
-* Concept: Availability refers to the percentage of time a system is operational and accessible to users. Reliability is the probability that the system will remain operational over a specified period.
-  * Example
-    * Load balancing
-    * Clustering
-    * Monitoring
-    * Automated failover
-
-#### Read-heavy vs. Write-heavy
-
-* Concept: Depending on whether your system is more read-heavy or write-heavy, you can design strategies such as queuing writes for write-intensive applications or utilizing caching mechanisms for read-intensive applications to optimize performance and mitigate potential failures.
-  * Read-heavy maps to distributed system
-  * Write-heavy maps to real-time operation system
-
-#### Security
-
-Security threats pose significant risks to a system. Identify potential security vulnerabilities and design appropriate security measures to protect your system. This can include authentication mechanisms, access controls, encryption, input validation, and robust error handling to prevent attacks like injection, cross-site scripting, and data breaches.
-
-#### Networking Metrics
-
-Networking metrics are essential for monitoring and optimizing network performance. Metrics such as bandwidth, latency, packet loss, and throughput provide insights into the health and efficiency of a network. By regularly measuring and analyzing these metrics, network administrators can identify bottlenecks, troubleshoot issues, and make informed decisions to improve overall network performance.
+  * Disaster recovery strategies
+* Availability and Reliability: Availability refers to the percentage of time a system is operational and accessible to users. Reliability is the probability that the system will remain operational over a specified period.
+  * Load balancing
+  * Clustering
+  * Monitoring
+  * Automated failover
+* Read-heavy vs. Write-heavy: Depending on whether your system is more read-heavy or write-heavy, you can design strategies such as queuing writes for write-intensive applications or utilizing caching mechanisms for read-intensive applications to optimize performance and mitigate potential failures.
+  * Read-heavy systems often benefit from distributed systems and caching strategies.
+  * Write-heavy systems require careful design to ensure data consistency and handle the high volume of write operations.
+* Security threats pose significant risks to a system. Identify potential security vulnerabilities and design appropriate security measures to protect your system. This can include authentication mechanisms, access controls, encryption, input validation, and robust error handling to prevent attacks like injection, cross-site scripting, and data breaches.
+* Networking Metrics: Networking metrics are essential for monitoring and optimizing network performance. Metrics such as bandwidth, latency, packet loss, and throughput provide insights into the health and efficiency of a network. By regularly measuring and analyzing these metrics, network administrators can identify bottlenecks, troubleshoot issues, and make informed decisions to improve overall network performance.
 
 ## Reference
 
