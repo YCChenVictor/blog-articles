@@ -31,6 +31,7 @@ Establish relationships between the identified objects by defining class hierarc
 ### Step 4: Define object behaviors and methods
 
 Involves identifying the attributes (data) and methods (functions) associated with each class. Methods define the operations or actions that can be performed by the objects.
+
 * Book class may have methods like `checkAvailability()` to check if the book is available and `reserve()` to reserve a book for a member.
 * Member class may have methods like `borrowBook()` to borrow a book and `returnBook()` to return a book.
 * Library class may have methods like `addBook()` to add a book to the library, `trackAvailability()` to track the availability of books, `issueBook()` to issue a book to a member, and `returnBook()` to process the return of a book.
@@ -41,15 +42,15 @@ Review and refine the design by considering principles such as encapsulation, in
 
 ### Step 6: Implement the design
 
-Translate the design into actual code using a programming language. Follow the design principles and guidelines to implement the classes, their relationships, and their behaviors. Please refer to [object oriented programming](/blog/software/ood/oop) and [SOLID](/blog/software/ood/solid).
+Translate the design into actual code using a programming language. Follow the design principles and guidelines to implement the classes, their relationships, and their behaviors. Please refer to [object oriented programming] and [SOLID].
 
 ### Step 7: Test and iterate
 
 Test the implemented system to verify its correctness, functionality, and performance. Iterate as necessary to fix any bugs, address design issues, and improve the overall quality of the system.
 
-### Examples
+## Examples
 
-#### Deck of Cards
+### Deck of Cards
 
 Question: Design the data structures for a generic deck of cards. Explain how you would subclass the data structures to implement blackjack.
 
@@ -233,19 +234,6 @@ in accordance with,
   //   })
   })
   ```
-
-### TODO
-
-* Call Center
-* Jukebox
-* Jukebox
-* Online Book Reader
-* Jigsaw
-* Othello
-* Circular Array
-* Minesweeper
-* File System
-* Hash Table
 
 ## Reference
 

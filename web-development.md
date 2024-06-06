@@ -9,11 +9,11 @@ To help me develop good websites.
 ### Fundamental Knowledge
 
 * [complexity](/concept/complexity)
-* [Data Structures and Algorithms (DSA)](data-structure-and-algorithm)
-* [system design](system-design)
+* [Data Structures and Algorithms (DSA)](concept/data-structure-and-algorithm)
+* [system design](concept/system-design)
 * Programming Style
-  * [object oriented design](/blog/software/ood/main)
-  * [Functional Programming]()
+  * [object oriented design](concept/ood)
+  * [Functional Programming]
 
 #### Refactor
 
