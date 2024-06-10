@@ -1,103 +1,125 @@
 # Title
 
-## Purpose
+## Init
 
-This article describes the key steps to build application with express, a light-weighted framework based on node. Inherited from node, it features real-time, high-performance, and scalable network. NodeJS is built in javascript.
+* Create project
 
-## Concept
-
-### Init
+  ```bash
+  mkdir project-name
+  cd project-name
+  ```
 
 * Install dependencies
+
   ```bash
-  yarn add express dotenv cors
-  yarn add nodemon --save-dev
+  yarn add express
+  yarn add dotenv
   ```
-  * express: simplifies web development in Node.js by providing a framework for handling HTTP requests, defining routes, implementing middleware, and rendering dynamic views
-  * cors: CORS (Cross-Origin Resource Sharing) is primarily enforced by the web browser, which checks the server's response headers to determine if a cross-origin request is permitted based on the requesting domain. This helps prevent unauthorized cross-origin requests and enhances security by ensuring that resources are only accessed by allowed domains.
-  * dotenv: allows you to load environment variables from a .env file
-  * nodemon: a development utility that automatically restarts the server whenever changes are made to the code
-* Initialize
-  ```bash
-  mkdir my-project
-  cd my-project
-  yarn init
-  ```
-* `touch .gitignore` with
-  ```bash
-  # Dependency directories
-  node_modules/
+
+* git
+  * Init: `git init`
+  * `touch .gitignore` with
   
-  # Optional npm cache directory
-  .npm
-  
-  # dotenv environment variables file
-  .env
-  ```
+    ```bash
+    # Dependency directories
+    node_modules/
+    
+    # dotenv environment variables file
+    *.env
+    ```
+
 * env: In `./.env`, we can add environment variables we want; for example, how to connect development database ...etc
+
   ```javascript
   process.env.xxx
   ```
+
 * ES6: In `package.json`
+
   ```JSON
   {
     "type": "module",
     ...
   }
   ```
+
 * Typescript
-  * `npx tsc --init`
-  * `yarn add ts-node`
-  * `yarn add tsconfig-paths`
-  * `yarn add express @types/express --save`
-  * `npx tsc`
-  * Update `package.json`
+  * Install required packages
+
+    ```bash
+    yarn add --dev typescript
+    yarn add --dev tsc-alias
+    tsc --init
+    ```
+
+  * Update script
+
     ```JSON
     "scripts": {
-      "start": "node dist/app.ts",
-      "dev": "NODE_ENV=development nodemon ./src/app.ts", // If you use nodemon for development
-      "build": "tsc"
+      "dev": "NODE_ENV=dev yarn start",
+      "start": "yarn compile && node dist/server.js --experimental-modules",
+      "compile": "tsc && tsc-alias",
     }
     ```
-  * Allow ES, in `tsconfig.json`
+  
+  * tsconfig
+
     ```JSON
     {
       "compilerOptions": {
+        "allowJs": true,
+        "target": "esnext",
+        "lib": ["esnext"],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "outDir": "./dist",
         "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "skipLibCheck": true
+      },
+      "include": [
+        "src",
+        "tests/**/*.ts",
+      ],
+      "exclude": [
+        "node_modules",
+        "dist",
+      ],
+      "tsc-alias": {
+        "resolveFullPaths": true,
+        "verbose": true
       }
     }
     ```
-  * Update `nodemon.json`
-    ```JSON
-    {
-      "watch": ["src"],
-      "ext": "ts,json",
-      "ignore": ["src/**/*.spec.ts"],
-      "exec": "node --loader ts-node/esm"
-    }
-    ```
+
   * run app through `yarn run dev`
+
 * `touch server.ts` with
+
   ```javascript
   // init
   import express from 'express'
   const app = express();
-  
-  if (process.env.NODE_ENV === 'development') {
+
+  if (process.env.NODE_ENV === 'dev') {
     app.listen(5000, () => {
-      api(app)
+      console.log('start dev')
     })
   } else if (process.env.NODE_ENV === 'test') {
     app.listen(8080, () => {
-      api(app)
+      console.log('start test')
     })
   } else {
     // TODO for production
   }
-  
+
   export default app
   ```
+
 * test it with curl: `curl http://localhost:5000/`
+
+## Dockerize
 
 ### structure
 
