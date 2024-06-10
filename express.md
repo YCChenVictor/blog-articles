@@ -121,6 +121,48 @@
 
 ## Dockerize
 
+* Dockerfile
+  
+  ```docker
+  # Use an official Node runtime as the base image
+  FROM node
+
+  # Set the working directory in the container to /app
+  WORKDIR /app
+  
+  # Copy package.json and package-lock.json into the directory
+  COPY package*.json ./
+  
+  # Install any needed packages specified in package.json
+  RUN yarn install
+  
+  # Bundle app source inside Docker image
+  # should copy file by file to avoid security issues
+  COPY . .
+  
+  # Run the app when the container launches
+  CMD ["yarn", "dev"]
+  ```
+
+* compose file (docker-compose.yml)
+
+  ```yml
+  version: '3'
+  services:
+    web:
+      build: .
+      volumes:
+        - .:/app
+      ports:
+        - "3000:3000"
+  ```
+
+* Run docker
+
+  ```bash
+  docker-compose up
+  ```
+
 ### structure
 
 The structure I prefer
