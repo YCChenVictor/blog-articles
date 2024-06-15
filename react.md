@@ -49,13 +49,50 @@ My own style of react setups.
 * Add linter
 
   ```bash
-  yarn add --dev eslint
+  yarn add --dev eslint @eslint/js @types/eslint__js typescript typescript-eslint
   ```
 
 * Init linter (follow what you like, you can add the rules in the future)
 
   ```bash
   npx eslint --init
+  ```
+
+* `eslint.config.js`
+
+  ```JS
+  // @ts-check
+
+  import eslint from '@eslint/js';
+  import tseslint from 'typescript-eslint';
+  import globals from "globals";
+  
+  export default tseslint.config(
+    eslint.configs.recommended,
+    ...tseslint.configs.recommendedTypeChecked,
+    ...tseslint.configs.stylisticTypeChecked,
+    {
+      languageOptions: {
+        parserOptions: {
+          project: true,
+        },
+        globals: {
+          ...globals.node,
+        }
+      },
+    },
+     {
+      files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
+      ...tseslint.configs.disableTypeChecked,
+    },
+  )
+  ```
+
+* Add command in `package.json`
+
+  ```JSON
+  "eslint": "eslint",
+  "eslint:fix": "eslint --fix",
   ```
 
 * Remove all the files in `/src` and add `index.ts` in it with following code:
