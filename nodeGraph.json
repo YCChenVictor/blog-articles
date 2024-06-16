@@ -1,12 +1,12 @@
 {
-  "http://localhost:3000/web-development/": [
-    "/",
-    "/software-dashboard",
-    "/concept/complexity",
-    "concept/data-structure-and-algorithm",
-    "concept/system-design",
-    "concept/ood",
-    "concept/operating-system",
-    "/concept/internet"
-  ]
+  "nodes": [
+    {
+      "id": 1,
+      "name": "",
+      "url": "http://localhost:3000/web-development/",
+      "group": 3,
+      "color": "#e5cd75"
+    }
+  ],
+  "links": []
 }
