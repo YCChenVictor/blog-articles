@@ -49,7 +49,7 @@
     ```bash
     yarn add --dev typescript
     yarn add --dev tsc-alias
-    tsc --init
+    yarn tsc --init
     ```
 
   * Update script
@@ -95,6 +95,71 @@
 
   * run app through `yarn run dev`
 
+* eslint
+  * install
+    ```bash
+    yarn add --dev eslint @eslint/js @types/eslint__js typescript typescript-eslint
+    ```
+  * `eslint.config.js`
+    ```js
+    // @ts-check
+  
+    import eslint from '@eslint/js';
+    import tseslint from 'typescript-eslint';
+  
+    export default tseslint.config(
+      eslint.configs.recommended,
+      ...tseslint.configs.strict,
+      ...tseslint.configs.stylistic,
+      {
+        ignores: [
+          '**/coverage/**',
+          '**/dist/**',
+          '**/migrations/**',
+          '**/*.config.js',
+          '**/*.config.ts'
+        ],
+      }
+    );
+    ```
+  * `package.json`
+    ```JSON
+    "eslint": "eslint",
+    "eslint:fix": "eslint --fix",
+    ```
+* prettier
+  * install
+    ```
+    ```
+  * In eslint.config.js
+    ```JS
+    import eslint from '@eslint/js';
+    import tseslint from 'typescript-eslint';
+    import prettierPlugin from "eslint-plugin-prettier";
+
+    export default tseslint.config(
+      eslint.configs.recommended,
+      ...tseslint.configs.strict,
+      ...tseslint.configs.stylistic,
+      {
+        ignores: [
+          '**/coverage/**',
+          '**/dist/**',
+          '**/migrations/**',
+          '**/*.config.js',
+          '**/*.config.ts'
+        ],
+      },
+      {
+        plugins: {
+          prettier: prettierPlugin,
+        },
+        rules: {
+          "prettier/prettier": "error",
+        },
+      },
+    );
+    ```
 * `touch server.ts` with
 
   ```javascript
@@ -118,6 +183,230 @@
   ```
 
 * test it with curl: `curl http://localhost:5000/`
+
+* Sequelize for Model and Database
+  * Install
+    ```bash
+    yarn add sequelize
+    ```
+  * babel
+    ```bash
+    yarn add babel-register
+    ```
+  * add `.sequelizerc` in root
+    ```JS
+    require("babel-register");
+
+    const path = require('path');
+
+    module.exports = {
+      config: path.resolve('src/config', 'sequelize.config.js'),
+      'models-path': path.resolve('src', 'models'),
+      'seeders-path': path.resolve('src', 'seeders'),
+      'migrations-path': path.resolve('src', 'migrations'),
+    };
+    ```
+  * `src/config/sequelize.config.js`
+    ```JS
+    import dotenv from 'dotenv';
+    import path from 'path';
+
+    dotenv.config({ path: path.resolve(process.cwd(), `env/${process.env.NODE_ENV}.env`)});
+
+    let config;
+
+    if(process.env.NODE_ENV === 'prod') {
+      config = {
+        username: process.env.DB_USER,
+        password: process.env.DB_PASS,
+        database: process.env.DB_NAME,
+        host: process.env.DB_HOST,
+        dialect: 'postgres',
+        port: process.env.DB_PORT,
+        dialectOptions: {
+          ssl: {
+              require: true,
+              rejectUnauthorized: false,
+            }
+          }
+      };
+    } else {
+      config = {
+        username: process.env.DB_USER,
+        password: process.env.DB_PASS,
+        database: process.env.DB_NAME,
+        host: process.env.DB_HOST,
+        dialect: 'postgres',
+        port: process.env.DB_PORT,
+      };
+    }
+
+    export default config;
+    ```
+  * Build index model
+    ```JS
+    import { Sequelize } from "sequelize";
+    import path from "path";
+    import dotenv from "dotenv";
+    import logger from "../logger";
+    
+    const initializeDatabase = (environment: string): Sequelize => {
+      let sequelize;
+    
+      dotenv.config({
+        path: path.resolve(process.cwd(), `env/${environment}.env`),
+      });
+    
+      if (
+        !process.env.DB_USER ||
+        !process.env.DB_NAME ||
+        !process.env.DB_PASS ||
+        !process.env.DB_HOST ||
+        !process.env.DB_PORT
+      ) {
+        throw new Error("Database configuration variables are missing");
+      }
+    
+      if (environment === "prod") {
+        sequelize = new Sequelize(
+          process.env.DB_NAME,
+          process.env.DB_USER,
+          process.env.DB_PASS,
+          {
+            logging: console.log,
+            host: process.env.DB_HOST,
+            port: parseInt(process.env.DB_PORT),
+            dialect: "postgres",
+            dialectOptions: {
+              ssl: {
+                require: true,
+                rejectUnauthorized: false,
+              },
+            },
+          },
+        );
+      } else {
+        sequelize = new Sequelize(
+          process.env.DB_NAME,
+          process.env.DB_USER,
+          process.env.DB_PASS,
+          {
+            logging: console.log,
+            host: process.env.DB_HOST,
+            port: parseInt(process.env.DB_PORT),
+            dialect: "postgres",
+          },
+        );
+      }
+    
+      return sequelize;
+    };
+    
+    const sequelize = initializeDatabase(process.env.NODE_ENV || "dev");
+    
+    export { initializeDatabase };
+    export default sequelize;
+    ```
+  * Test connection
+    ```JS
+    import sequelize from "./models/index";
+
+    sequelize
+    .authenticate()
+    .then(() => {
+      logger.info("Connection has been established successfully.");
+  
+      app.listen(port, () => {
+        logger.info(`HTTP server is running on port ${port}`);
+      });
+    })
+    .catch((err: Error) => {
+      logger.error("Unable to connect to the database:", err);
+    });
+    ```
+  * create migration file
+    ```bash
+    npx sequelize-cli migration:generate --name create-tasks
+    ```
+  * Define the structure in the generated migration file
+    ```JS
+    module.exports = {
+      up: async (queryInterface, Sequelize) => {
+        await queryInterface.createTable('Tasks', {
+          id: {
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
+            type: Sequelize.INTEGER
+          },
+          name: {
+            type: Sequelize.STRING,
+            allowNull: false
+          },
+          createdAt: {
+            allowNull: false,
+            type: Sequelize.DATE
+          },
+          updatedAt: {
+            allowNull: false,
+            type: Sequelize.DATE
+          }
+        });
+      },
+      down: async (queryInterface, Sequelize) => {
+        await queryInterface.dropTable('Tasks');
+      }
+    };
+    ```
+  * Connect Database
+    ```JS
+    // models/index.ts
+    const Sequelize = require('sequelize');
+    const sequelize = new Sequelize('database', 'username', 'password', {
+      host: 'localhost',
+      dialect: 'postgres' // choose the correct dialect
+    });
+    // models/task.ts
+    const Task = sequelize.define('Task', {
+      title: {
+        type: Sequelize.STRING,
+        allowNull: false
+      }
+    });
+    // Use it with sync in controller; however, not recommended and should use migration files
+    Task.sync({force: true}).then(() => {
+    console.log('Task table has been successfully created, if one doesn't exist');
+    }).catch(error => console.log('This error occurred', error));
+    ```
+  * Do migrate
+    ```bash
+    npx sequelize-cli db:migrate
+    ```
+    * Or in docker
+      ```bash
+      # Dockerfile
+      ENTRYPOINT ["/wait-for-it.sh", "db-dev:5432", "--", "./start_dev.sh"]
+      ```
+      with
+      ```
+      #!/bin/bash
+
+      yarn db:migrate:dev
+      yarn dev
+      ```
+* Routes & Controller
+
+  ```JS
+  // app.ts
+  app.use('/tasks', taskRouter);
+  
+  // routers/task-router.ts
+  router.get('/', asyncHandler(getTasks));
+  
+  // controllers/task-controller.ts
+  const getTasks = async (req: Request, res: Response, next: NextFunction) => {
+  }
+  ```
 
 ## Dockerize
 
@@ -147,14 +436,27 @@
 * compose file (docker-compose.yml)
 
   ```yml
-  version: '3'
   services:
-    web:
+    app-dev:
       build: .
       volumes:
         - .:/app
       ports:
-        - "3000:3000"
+        - "5000:5000"
+    db-dev:
+      image: timescale/timescaledb:latest-pg16
+      restart: unless-stopped
+      env_file:
+        - ./env/dev.env
+      ports:
+        - 5432:5432
+  ```
+
+* `env.dev`
+
+  ```bash
+  # PG credentials
+  POSTGRES_PASSWORD=your_db_password
   ```
 
 * Run docker
@@ -163,7 +465,102 @@
   docker-compose up
   ```
 
-### structure
+## Test
+
+I prefer jest.
+
+* Install
+  ```bash
+  yarn add --dev jest @types/jest
+  ```
+* Setup script, in `package.json`
+  ```JSON
+  "scripts": {
+    "test": "NODE_ENV=test jest",
+    "test:coverage": "NODE_ENV=test jest --coverage",
+    "db:migrate:test": "NODE_ENV=test yarn db:migrate",
+  },
+  ```
+* `jest.config.js`
+  ```JS
+  // Or directly use inline config
+  const config = {
+    preset: 'ts-jest',
+    detectOpenHandles: true,
+    testEnvironment: 'node',
+    coverageThreshold: {
+      global: {
+        branches: 70,
+        functions: 80,
+        lines: 80,
+        statements: 80
+      }
+    },
+    setupFilesAfterEnv: ['./tests/setup.ts'],
+  };
+
+  export default config;
+  ```
+* You need to add at least one test to have coverage report.
+  ```JS
+  // tests/integration/helloWorld.test.ts
+  import request from "supertest";
+  import app from "../../src/app";
+  
+  describe("GET /", () => {
+    it("responds with Hello, World!", async () => {
+      const response = await request(app).get("/");
+      expect(response.statusCode).toBe(200);
+      expect(response.text).toBe("Hello, World!");
+    });
+  });
+  ```
+* Refer to [Docker] for setting up test database; for example, PG
+  ```bash
+  docker run -d -p 5432:5432 -e POSTGRES_USER=test_user -e POSTGRES_PASSWORD=test_password -e POSTGRES_DB=test_db timescale/timescaledb:latest-pg16
+  ```
+* migrate test database
+  ```bash
+  yarn db:migrate:test
+  ```
+* Use `request(app)` to test the api
+  ```javascript
+  const request = require('supertest');
+  const app = require('../app'); // Import your app
+  
+  describe('Test the /api path', () => {
+    test('It should response the GET method', async () => {
+      const response = await request(app).get('/api');
+      expect(response.statusCode).toBe(200);
+    });
+  });
+  ```
+* Reset database before each case to drop and create tables
+  ```javascript
+  beforeEach(async () => {
+    sequelize.truncate({ cascade: true, restartIdentity: true });
+  });
+  ```
+* Mock: In `spec_config`
+  ```javascript
+  jest.mock('pg', () => { // should extract to other file
+    const mPool = {
+      connect: function () {
+        return { query: jest.fn() };
+      },
+      query: jest.fn(),
+      end: jest.fn(),
+      on: jest.fn(),
+    };
+    return { Pool: jest.fn(() => mPool) };
+  });
+  ```
+* Run test
+  ```bash
+  yarn test:coverage
+  ```
+
+## App Structure
 
 The structure I prefer
 
@@ -188,68 +585,12 @@ graph LR
   C((Controllers)) --> Response([HTTP Response])
 ```
 
-#### Naming Convention
+### Naming Convention
 
 * File: use hyphens; for example, `user-controller.js`
 * Url: use hyphens; for example, `/node-graph`
 
-### Basic Structure
-
-```javascript
-  const express = require('express');
-  const app = express();
-  const port = 3000;
-
-  // Define a route with a parameter
-  app.get('/api/:paramName', (req, res) => {
-    const paramName = req.params.paramName;
-    res.send(`Received parameter: ${paramName}`);
-  });
-
-  // Start the server
-  app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
-  });
-  ```
-
-### Routes
-
-In Express.js, "Routes" are used to direct incoming requests to the appropriate controller functions. These routes are defined based on the HTTP method (like GET or POST) and the URL of the request. Any information encoded in the request URL, such as parameters or query strings, is also forwarded to the controller function.
-
-```js
-const express = require('express');
-const router = express.Router();
-const userController = require('./controllers/user-controller');
-
-// Route for GET request to /users
-router.get('/users', userController.getUsers);
-
-// Route for POST request to /users
-router.post('/users', userController.createUser);
-
-module.exports = router;
-```
-
-### Controllers
-
-"Controller" functions are responsible for handling requests once they've been routed. They interact with the model to get the requested data, create an HTML page (or some other type of response) displaying the data, and send it back to the user to view in their browser.
-
-```js
-// In user-controller.js
-exports.getUsers = (req, res) => {
-  // Get data from model
-  // Create HTML page with data
-  // Send response to user
-};
-
-exports.createUser = (req, res) => {
-  // Get data from request
-  // Use model to create new user
-  // Send response to user
-};
-```
-
-#### REST
+### RESTful
 
 ```javascript
 // restful API
@@ -261,105 +602,7 @@ exports.createUser = (req, res) => {
 // PATCH /records/:id -> records#update
 // PUT /records/:id -> records#update
 // DELETE /records/:id -> records#destroy
-
-const modelRecord = require('../database/models/record.js')
-
-module.exports = (app) => {
-  // TODO: add RESTful api for record here
-}
 ```
-
-#### internal consume
-
-Just call them with proper endpoint
-
-```javascript
-request({
-  url: 'http://127.0.0.1:3000/api/', //on 3000 put your port no.
-  method: 'POST',
-  json: {
-    obj: Obj
-  }
-  }, function (error, response, body) {
-    console.log({error: error, response: response, body: body});
-});
-```
-
-### inherit
-
-In Express, you can create a base API router and then have other routers inherit from it. This can help you organize your routes and middleware effectively. Here's how you can achieve this:
-
-1. Create a Base API Router:
-
-```javascript
-// baseRouter.js
-const express = require('express');
-
-const baseRouter = express.Router();
-
-// Add middleware or routes specific to the base API here
-baseRouter.use((req, res, next) => {
-  // Add any base API middleware logic here
-  next();
-});
-
-module.exports = baseRouter;
-```
-
-2. Create Specific Routers Inheriting from the Base Router:
-
-```javascript
-// userRouter.js
-const express = require('express');
-const baseRouter = require('./baseRouter'); // Import the base router
-
-const userRouter = express.Router();
-
-// Add middleware or routes specific to user API here
-userRouter.use((req, res, next) => {
-  // Add any user-specific middleware logic here
-  next();
-});
-
-// Use the baseRouter middleware in userRouter
-userRouter.use(baseRouter);
-
-// Add user-specific routes here
-userRouter.get('/profile', (req, res) => {
-  // User profile route logic
-});
-
-module.exports = userRouter;
-```
-
-3. Use the Routers in Your Main Application File:
-
-```javascript
-// app.js
-const express = require('express');
-const userRouter = require('./userRouter'); // Import the user router
-
-const app = express();
-
-// Use the userRouter middleware in the main app
-app.use('/api/user', userRouter);
-
-// Other app-level configurations and routes can be added here
-
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
-});
-```
-
-In this example, the `userRouter` inherits from the `baseRouter`. You can create additional routers following the same pattern, each inheriting from the `baseRouter` or other relevant routers. This approach helps you keep your code modular and organized.
-
-### Database
-
-[database](/blog/software/express/database)
-
-### Model
-
-Various libraries and frameworks such as Mongoose, Sequelize, or Bookshelf can be used to implement models in Node.js, providing an ORM layer for interacting with databases and managing data models. For more information, please refer to [model]({{site.baseurl}}/node/2022/01/20/model.html)
 
 ### Service in monolithic
 
@@ -430,71 +673,6 @@ module.exports = OrderController;
 
 ### micro-services
 
-### Test
-
-I prefer jest.
-
-* Install
-  ```nash
-  yarn add jest
-  ```
-* In `/test`, run jest
-  * Setup script, in `package.json`
-    ```JSON
-    "scripts": {
-      "test": "NODE_ENV=test jest",
-    },
-    ```
-* Create spec directory in root, and run tests in specific directory
-  ```bash
-  npx jest ./tests --detectOpenHandles
-  ```
-* Environment variables, in `.env` add following to setup test database
-  ```bash
-  TEST_DATABASE_URL={database_system}://{username}:{password}@{host_and_port}/{database_name}
-  ```
-* Refer to [Docker] for setting up test database; for example, PG
-  ```bash
-  docker run --name my_db \
-      -e POSTGRESQL_PORT=5432 \
-      -e POSTGRESQL_DB=my_db \
-      -e POSTGRESQL_USER=postgres \
-      -e POSTGRES_PASSWORD=test1234 \
-      -d postgres
-  ```
-* Use `request(app)` to test the api
-  ```javascript
-  const request = require('supertest');
-  const app = require('../app'); // Import your app
-  
-  describe('Test the /api path', () => {
-    test('It should response the GET method', async () => {
-      const response = await request(app).get('/api');
-      expect(response.statusCode).toBe(200);
-    });
-  });
-  ```
-* Reset database before each case to drop and create tables
-  ```javascript
-  beforeEach(async () => {
-    sequelize.truncate({ cascade: true, restartIdentity: true });
-  });
-  ```
-* Mock: In `spec_config`
-  ```javascript
-  jest.mock('pg', () => { // should extract to other file
-    const mPool = {
-      connect: function () {
-        return { query: jest.fn() };
-      },
-      query: jest.fn(),
-      end: jest.fn(),
-      on: jest.fn(),
-    };
-    return { Pool: jest.fn(() => mPool) };
-  });
-  ```
-
 ### debugger
 
 In `package.json`,
@@ -510,137 +688,6 @@ In vscode, click `Run and Debug` in the sidebar
 In the top, click `Run Script: dev`
 
 Then we can debug the code in [debug console]
-
-## Example
-
-### user
-
-```javascript
-import User from '../models/user.js';
-import jwt from 'jsonwebtoken';
-import passport from '../middleware/passport.js';
-
-const userAPIs = (app) => {
-  app.post('/signup', async (req, res) => {
-    const { username, password } = req.body;
-
-    try {
-      // Create a new user using the User model
-      const newUser = await User.create({ username, password });
-
-      res.json({ message: 'Signup successful', user: newUser });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Internal server error' });
-    }
-  });
-
-  app.post('/login',
-    passport.authenticate('local', { failureRedirect: '/login-failure' }),
-    (req, res) => {
-      res.json({ message: 'Login successful', user: req.user });
-    }
-  );
-
-  app.get('/authentication', passport.authenticate('jwt'), (req, res) => {
-    res.status(200).json({ loggedIn: true });
-  });
-};
-```
-
-### external API
-
-A real quick example:
-
-```javascript
-const axios = require('axios');
-
-const data = {
-  param1: 'value1',
-  param2: 'value2'
-};
-
-axios.post('https://api.example.com/path', data)
-  .then(response => {
-    console.log(response.data);
-  })
-  .catch(error => {
-    console.log(error);
-  });
-```
-
-#### Youtube
-
-* Purpose: I want to manage my account’s subscription in a mathematical way
-* Repo: https://github.com/googleapis/google-api-ruby-client
-* Documentation: https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps#node.js
-* Quota (refresh every day): https://console.cloud.google.com/apis/api/youtube.googleapis.com/quotas
-* Steps
-  * Install required package: `npm install googleapis`
-  * Get the Key
-    * Start a project in [console.cloud](https://console.cloud.google.com/apis/library/youtube.googleapis.com?project=mineral-balm-313306)
-    * Get the key in [Service Detail](https://console.cloud.google.com/apis/api/youtube.googleapis.com/credentials?project=mineral-balm-313306)
-    * Put it in `dotenv`
-  * Init `youtube`
-    ```javascript
-    const { google } = require("googleapis");
-    const youtube = google.youtube({
-      version: "v3",
-      auth: apiKey,
-    });
-    ```
-  * Use API
-    ```javascript
-    app.get("/search-with-googleapis", async (req, res, next) => {
-      try {
-        const searchQuery = req.query.search_query;
-        const response = await youtube.search.list({
-          part: "snippet",
-          q: searchQuery,
-        });
-
-        const titles = response.data.items.map((item) => item.snippet.title);
-        res.send(titles);
-      } catch (err) {
-        next(err);
-      }
-    });
-    ```
-    * Test it with: `curl http://localhost:5000/search-youtube-with-googleapis`
-
-#### ChatGPT
-
-* Sign up for an OpenAI account
-* Create an API key in OpenAI account dashboard. This key will be used to authenticate requests to the API
-* Install the openai package
-  ```bash
-  npm install openai
-  ```
-* connect
-  ```javascript
-  const openai = require('openai');
-
-  // Set up the OpenAI API credentials
-  openai.apiKey = 'YOUR_API_KEY';
-
-  // Set up the request parameters
-  const prompt = 'Hello, ChatGPT!';
-  const model = 'text-davinci-002';
-  const temperature = 0.5;
-  const maxTokens = 100;
-
-  // Send the request to ChatGPT
-  openai.complete({
-    engine: model,
-    prompt: prompt,
-    temperature: temperature,
-    maxTokens: maxTokens,
-  }).then(response => {
-    console.log(response.data.choices[0].text);
-  }).catch(error => {
-    console.log(error);
-  });
-  ```
 
 ## Reference
 
