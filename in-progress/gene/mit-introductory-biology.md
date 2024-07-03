@@ -104,3 +104,37 @@ Course 2
     ```smiles
     CCOP(=O)(OCC)O
     ```
+* Non-covalent bonding -> dynamics
+  * To break a covalent, 90-100 Kcal/mol
+  * To break non covalent, 1-10 Kcal/mol
+  * Ionic bond (salt bridge)
+  * [Hydrogen bond](https://www.khanacademy.org/science/hs-chemistry/x2613d8165d88df5e:states-of-matter/x2613d8165d88df5e:intermolecular-forces/v/hydrogen-bonding) -> pole -> protein
+  * hydrophobic, exclusion of water
+  * van der Waals, weakly polarized bonds
+
+---
+
+Read Text 3.2
+
+* Amino acids are the building blocks of proteins (Amino group and Carboxyl group)
+  ```smiles
+  [NH3+]C[C-]([O-])=O
+  ```
+  * $-COOH -> -COO^- + H^+$
+  * $-NH_2 + H ^+ -> -NH_3^+$
+  * amino acids are both acids and bases
+  * R groups determines the structure of it, so it determines the function of protein
+  * There are 20 different R groups and the charged and polar ones are hydrophilic; the nonpolar ones are hydrophobic
+  * disulfide bridge: two cysteine with oxidation
+  * Peptide linkage: condensation by removing one $H_2O$ and connect Amino group and Carboxyl group
+  * Hydrogen bonding determines the structure of polypeptide chains ($\delta^+$ of $N-H$ and $\delta^-$ of $C=O$)
+* The tertiary structure of a protein is formed by bending and folding
+* Heat protein -> Denatured -> break secondary and tertiary structure -> cool down -> in some cases, the protein returns to normal structure, meaning the shape is contained in its primary structure
+* The quaternary structure of a protein consists of subunits, one tertiary structure
+* The shape and surface further determines the protein function
+  * Only certain shape of protein can fit into another shape of protein
+* Molecular Chaperones protect proteins from inappropriate binding
+
+---
+
+Course 3
