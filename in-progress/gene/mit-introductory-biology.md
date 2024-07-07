@@ -138,3 +138,39 @@ Read Text 3.2
 ---
 
 Course 3
+
+* Semipermeable membrane
+  * wrapping up by lipids
+  * $O_2$ and $H_2O$ can in and out freely
+  * self-healing: seal from a hole
+  * Electrostatic and hydrogen-bonding on the interface
+* Protein formed by amino acids (40 ~ 2000)
+* Always write from N to C (amino to carboxyl)
+* motif: in secondary structure, the turns of the primary structure
+* Proteins are condensation polymers of $\alpha$-amino acids
+* Each protein is defined by a specific sequence of monomer amino acids linked by covalent bonding
+* Most native proteins fold into stable secondary and tertiary structures
+* Folding is defined by thermodynamic stability and the sum of many non-covalent interactions
+* Protein subunit may also associate through non-covalent interactions into quaternary structures
+
+---
+
+Read text: 8.1, 8.3 - 8.5 (read the summary first, the summary is in the end of the chapter)
+
+https://www.youtube.com/watch?v=yk14dOOvwMk
+
+* The usable energy is free energy; The unusable energy is entropy
+  * $H = G + TS$ (total energy = usable energy + unusable energy, T is absolute temperature and S is entropy)
+  * $\triangle G_{reaction} = G_{product} - G_{reactants}$ => $\triangle G = \triangle H - T\triangle S$
+* The potential energy is the energy of state; Kinetic energy is the energy of motion, which can do work
+  * Potential: chemical bonds, concentration gradient, electric charge imbalance
+  * Kinetic: heat
+  * Potential <-> Kinetic
+* Laws of thermodynamics
+  * Energy cannot be created or destroyed
+  * Energy transformations decrease the amount of energy for work and increase disorder
+* The change in free energy determines its point of chemical equ. (The forward and reverse reactions proceed at the same rate)
+* An exergonic reaction -> release free energy, -$\triangle G$; An endergonic reaction -> consumes free energy, +$\triangle G$
+* Metabolism = the sum of all biochemical reactions; Catabolic reactions, breakdown of complex molecules and release energy; Anabolic reactions build complexity in the cell and are endergonic.
+
+(To Chemical reactions release or consume energy)
