@@ -159,6 +159,8 @@ Read text: 8.1, 8.3 - 8.5 (read the summary first, the summary is in the end of 
 
 https://www.youtube.com/watch?v=yk14dOOvwMk
 
+textbook 8.1
+
 * The usable energy is free energy; The unusable energy is entropy
   * $H = G + TS$ (total energy = usable energy + unusable energy, T is absolute temperature and S is entropy)
   * $\triangle G_{reaction} = G_{product} - G_{reactants}$ => $\triangle G = \triangle H - T\triangle S$
@@ -172,5 +174,40 @@ https://www.youtube.com/watch?v=yk14dOOvwMk
 * The change in free energy determines its point of chemical equ. (The forward and reverse reactions proceed at the same rate)
 * An exergonic reaction -> release free energy, -$\triangle G$; An endergonic reaction -> consumes free energy, +$\triangle G$
 * Metabolism = the sum of all biochemical reactions; Catabolic reactions, breakdown of complex molecules and release energy; Anabolic reactions build complexity in the cell and are endergonic.
+* Catabolic: Complex molecules -> free energy + small molecules
+* Anabolic: Free energy + small molecules -> complex molecules
+* Standard laboratory condition: $25^oC$, one atmosphere pressure, one molar concentration of the solutes, pH7. The standard free energy change under standard condition is $\triangle G^{o'}$
 
-(To Chemical reactions release or consume energy)
+textbook 8.3
+
+* The more negative the $\triangle G$ is, the further the reaction proceeds toward completion.
+* Catalyst does not cause a reaction to occur, but merely increases the rate of the reaction
+* To speed up a reaction, an energy barrier must be overcome
+* Enzymes lower the energy barrier but do not affect equilibrium.
+
+textbook 8.4
+
+* Most enzymes are much larger than their substrates
+* The active site is specific to the substrates
+  * a substrate can be oriented correctly, chemically modified, or strained
+* Induced fit: The change in enzyme shape caused by substrate binding
+  * Induced fit explains why enzymes are so large
+* Some enzymes require other cofactors to carry out catalysis
+  * A coenzyme can be considered a substrate, it is changed by the reaction and then released from the enzyme
+* Substrate concentration affects the rate of enzyme-catalyzed reaction
+
+textbook 8.5
+
+* Metabolism is organized into pathways in which the product of one reaction is a reactant for the next reaction.
+* ENzymes can be regulated by inhibitors
+  * If an inhibitor covalently binds to certain side chains at the active site of an enzyme, it will per- manently inactivate the enzyme by destroying its capacity to interact with its normal substrate.
+  * The inhibition is reversible because if the con- centration of substrate is increased or if the concentration of inhibitor is reduced, the substrate is more likely to bind, and the enzyme is active again.
+  * A competitive inhibitor binds to the active site, preventing substrate binding.
+  * An uncompetitive inhibitor binds to the enzyme–substrate complex, preventing release of products.
+  * A noncompetitive inhibitor binds at a site other than the active site, changing enzyme structure so that normal substrate binding cannot occur.
+* The first reaction in a metabolic pathway is referred to as the commitment step.
+* Enzymes are highly sensitive to changes in temperature and pH.
+  * pH decreases -> more H+ -> react with $COO^-$ -> no longer negatively charged -> no longer interact with positively charged groups in the protein -> the folding of the protein may be altered
+  * Temperature increase -> the reaction rate increase -> temperature too high -> reaction drops abruptly
+  * Most enzymes in humans are more stable at high temperatures than those of the bacteria that infect us, so that a moderate fever tends to denature bacterial enzymes, but not our own.
+
