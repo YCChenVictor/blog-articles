@@ -211,3 +211,27 @@ textbook 8.5
   * Temperature increase -> the reaction rate increase -> temperature too high -> reaction drops abruptly
   * Most enzymes in humans are more stable at high temperatures than those of the bacteria that infect us, so that a moderate fever tends to denature bacterial enzymes, but not our own.
 
+---
+
+Course 4
+
+* Denaturation
+  * Heat: boil eggs
+  * pH: change the charges state
+  * salts, organics: 
+* $\alpha_2\beta_2$ protein
+  * Normal DNA -> RNA (GAG) -> Normal Protein (GLU) -> Normal hemoglobin -> Normal Red Blood Cells
+  * abnormal DNA -> RNA (GUG) -> MUTANT PROTEIN (VAL) -> Sickle cell -> Sicked red blood cells
+  * Only 1/14 with sicked red blood suffer malaria
+
+---
+
+Learn carbohydrates
+
+Textbook: 3.3
+
+
+
+---
+
+Course 5
