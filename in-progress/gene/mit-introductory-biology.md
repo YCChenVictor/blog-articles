@@ -230,8 +230,52 @@ Learn carbohydrates
 
 Textbook: 3.3
 
-
+* Carbohydrates is not actually hydrates even though it has the form of $C_m(H_2O)_n$. The water molecules are not intact.
+* Cells use glucose as energy source
+  * Glucose exists in straight chains and in ring forms. Ring form is more stable.
+* The absence of this oxygen atom is an important distinction between RNA and DNA. (five carbon sugar)
+* maltose can be hydrolyzed into its monosaccharides in the hu- man body, whereas cellobiose cannot.
+  * maltose = $\alpha-D-Glucose$ + $\beta-D-Glucose$
+  * cellobiose = $\beta-D-Glucose$ + $\beta-D-Glucose$
+* The different human blood groups (for example, the ABO blood types) get their specificities from oligosaccharide chains. 
+* Both glycogen and starch are readily hydrolyzed into glucose monomers, which in turn can be bro- ken down to liberate their stored energy.
+  * Glycogen store glucose in the liver and muscles
+  * Large starch aggregates called starch grains can be observed in the storage tissues of plant seeds
+* Cellulose, however, is chemically more stable because of its β-glycosidic linkages.
 
 ---
 
 Course 5
+
+* 25% massive macromolecules are carbohydrate
+* HEXOSES (6C)
+  * glycogen
+* PENTOSE (5C)
+  * 2-Deoxy Ribose -> DNA
+  * Ribose -> RNA
+* We have enzyme to break Glycogen but Cellulose. That's why we can get energy from Glycogen.
+
+---
+
+NUCLEIC ACIDS -> DNA/RNA
+* DNA must exist as complementary strands
+  * A <-> T (2 hydrogen bonds)
+  * C <-> G (3 hydrogen bonds)
+
+4.1 What are the chemical structures and functions of nucleic acids
+* The unique functions of the nucleic acids—DNA and RNA—are information storage and transfer.
+* Nucleic acids are polymers of nucleotides.
+  * A nucleotide consists of three components: a nitrogen-containing base, a pentose sugar, and one to three phosphate groups 
+* In DNA, the nucleotide bases are adenine (A), guanine (G), cytosine (C), and thymine (T). Uracil (U) replaces thymine in RNA.
+* Complementary base pairing due to hydrogen bonds between A and T, A and U, and G and C occurs in nucleic acids.
+* DNA is expressed as RNA in transcription. RNA can then specify the amino acid sequence of a protein in translation.
+* RNA is usually a single strand.
+* In contrast to RNA’s diversity in three-dimensional structure, DNA is remarkably uniform.
+* DNA carries information and is expressed through RNA
+  * The DNA sequences that encode specific proteins are transcribed into RNA.
+
+To: The DNA base sequence reveals evolutionary relationships
+
+13.1
+
+13.2
