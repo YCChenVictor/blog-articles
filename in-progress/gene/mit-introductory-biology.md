@@ -274,8 +274,55 @@ NUCLEIC ACIDS -> DNA/RNA
 * DNA carries information and is expressed through RNA
   * The DNA sequences that encode specific proteins are transcribed into RNA.
 
-To: The DNA base sequence reveals evolutionary relationships
-
 13.1
 
+* Griffith’s experiments in the 1920s demonstrated that some substance in cells can cause heritable changes in other cells.
+  * Griffith concluded that in the presence of the dead S-type pneumococcus cells, some of the living R-type cells had been trans- formed into virulent S cells.
+* Avery and his colleagues isolated the transforming principle from bacteria and identified it as DNA.
+* The Hershey–Chase experiments established conclusively that DNA (and not protein) is the genetic material, by tracing the DNA of radioactively labeled viruses, with which they infected bacterial cells.
+* Transformation and transfection can be studied with the aid of a genetic marker gene that confers a known and observable phenotype.
+  * Any cell can be transfected, even an egg cell.
+
 13.2
+
+* Chargaff’s rule states that the amount of adenine in DNA is equal to the amount of thymine, and that the amount of guanine is equal to the amount of cytosine; thus the total abundance of purines (A + G) equals the total abundance of pyrimidines (T + C).
+* X-ray crystallography showed that the DNA molecule is a double helix.
+* Complementary base pairing between A and T and between G and C accounts for Chargaff’s rule. The bases are held together by hydrogen bonding.
+  * DNA is usually a right-handed helix.
+  * DNA is antiparallel
+  * DNA has major and minor grooves in which the outer edges of the nitrogenous bases are exposed.
+* Reactive groups are exposed in the paired bases, allowing for rec- ognition by other molecules such as proteins.
+
+---
+
+Course 6
+
+* DNA, deoxyribose, ATGC, stable, dsDNA
+* RNA, ribose, AUGC, various structure, rRNA, mRNA
+
+---
+
+Course 7
+
+* Isotopes used as tracer and marker
+  * You can locate the DNA with Isotopes.
+  * When replication, new parts of DNA with non-isotopes were created. Through observing the position of isotopes and non-isotopes, we can understand the process of the replication.
+  * The replication is a semi-conservative process
+* Template driven polymer
+  * AT place start the replication because there are three bonds here
+  * helicase separates the strands of DNA
+  * single strand binding protein attached to prevent single strand DNA bind again when replication.
+  * Topoisomerase cut the DNA
+
+---
+
+Course 8
+
+* transcription
+  * bacteria -> metabolize phenylalanine from blood -> preclinical trials
+* Bacteria replication error rate: 1/1000 (the speed 1000 BP/sec) -> unacceptable -> proof reading -> 3' exo nuclease -> error rate: $1/10^5$
+* guardian of genome
+  * The factors break the genome: hv, radiation, chemicals
+  * base excision repair
+  * nucleotide excision repair
+
