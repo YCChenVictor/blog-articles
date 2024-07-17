@@ -325,4 +325,43 @@ Course 8
   * The factors break the genome: hv, radiation, chemicals
   * base excision repair
   * nucleotide excision repair
+* aging -> telomerase cannot fill the gaps of the replicated gene -> the gene getting shorter -> divide the cells to a certain amount, then it no longer to divide again
+* The RNA sequence is synthesized in the 5' to 3' direction -> The DNA is read from 3' to 5' -> Promoter Sequences: Located upstream of genes, determining the start
+
+---
+
+Course 9
+
+* RNA Only copy a part of the DNA sequence.
+* (1) Promoters and enhancers pre mRNA -> mRNA, leave nucleus
+* (2) Eukaryotic Transcription starts from Chromatin remodeling
+  * DNA is wrapped around protein called histone (carries + charge from lysine, attracted by p group on the DNA)
+  * enzyme stabilize the reaction through removing the + charge from histone with bonding with other molecules
+* (3) 5' capping
+* (4) polyadenylation of 3' -> Protect the mRNA
+* (5) splicing
+  * capped 5' - EXON - INTRONS - EXON - 3'AAAA
+  * splicing the middle INTRONS -> 5' - EXON - EXON - 3'AAAA
+  * Gives different functions of the proteins
+* tRNA = decoders
+
+---
+
+Read 14.5
+
+* During translation, amino acids are linked together in the order specified by the codons in the mRNA. This task is achieved by tRNAs, which bind to (are charged with) specific amino acids.
+* Each tRNA species has an amino acid attachment site as well as an anticodon complementary to a specific mRNA codon. A specific activating enzyme charges each tRNA with its specific amino acid.
+  * the mRNA codon for arginine is 5′-CGG-3′, and the comple- mentary tRNA anticodon is 3′-GCC-5′.
+  * For example, the presence of inosine in the tRNA with the anticodon 3′-CGI-5′ allows it to recognize and bind to three of the alanine codons: GCA, GCC, and GCU. 
+  * each mRNA codon binds to just one tRNA species, carrying a specific amino acid.
+* The ribosome is the molecular workbench where translation takes place. It has one large and one small subunit, both made of ribosomal RNA and proteins.
+  * A ribosome can use any mRNA and all species of charged tRNAs
+  * When not active in the translation of mRNA, the ribosomes exist as two separate subunits.
+* Three sites on the large subunit of the ribosome interact with tRNA anticodons. The A site is where the charged tRNA anticodon binds to the mRNA codon; the P site is where the tRNA adds its amino acid to the growing polypeptide chain; and the E site is where the tRNA is released.
+* Translation occurs in three steps: initiation, elongation, and termination. The initiation complex consists of tRNA bearing the first amino acid, the small ribosomal subunit, and mRNA. A specific complementary sequence on the small subunit rRNA binds to the transcription initiation site on the mRNA.
+  * the mRNA start codon in the genetic code is AUG 
+* The growing polypeptide chain is elongated by the formation of peptide bonds between amino acids, catalyzed by the rRNA.
+* When a stop codon reaches the A site, it terminates translation by binding a release factor.
+  * The elongation cycle ends, and translation is terminated, when a stop codon—UAA, UAG, or UGA—enters. These codons do not cor- A respond with any amino acids, 
+* In a polysome, more than one ribosome moves along a strand of mRNA at one time.
 
