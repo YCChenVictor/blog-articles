@@ -365,3 +365,42 @@ Read 14.5
   * The elongation cycle ends, and translation is terminated, when a stop codon—UAA, UAG, or UGA—enters. These codons do not cor- A respond with any amino acids, 
 * In a polysome, more than one ribosome moves along a strand of mRNA at one time.
 
+---
+
+Course 10
+
+* 4 bases (nucleotides) -> 20 amino acids
+  * we need at least 3 bases to encode 20 amino acids (4^3 > 20)
+* tRNA build hydrogen bond itself
+  * Loop
+  * Codon: triplet of nucleotides (where to mapping AA occur)
+* genetic code
+  * AUG -> start (Met)
+  * stop: UAA, UAG, UGA
+  * degenerate: > 1 codon/AA (some AA is more frequency, species specifics)
+* load AA
+  * AA attached on tRNA, costing one ATP
+
+---
+
+Course 11
+
+* genetic DNA the same but different gene expression
+* mRNA -> gene express -> different cell types
+* endocytosis (outside -> in)
+  * A stuff (cannot get into cell because of hydrophobic surface) -> lipid bilayer -> change the shape, make a hole in one the bilayer -> and take that stuff wrapped by lipid bilayer in
+* exocytosis (inside -> out)
+  * The reverse of the last point
+* Mitochondria
+  * outer membrane
+  * inner membrane
+  * retained DNA
+  * divide by fission
+  * three parents (two for cell, one for Mitochondria, repairing the disease from it)
+* Cytoskeleton
+  * dynamic machine in the cell -> with microtubules, generate force
+  * microtubules -> biopolymers -> self assemble and grow and another end can shrink -> can pull -> pull chromosome both side -> chromosome split -> cell split
+
+---
+
+Read 5.3
