@@ -404,3 +404,31 @@ Course 11
 ---
 
 Read 5.3
+
+* Eukaryotic cells are larger than prokaryotic cells and contain many membrane-enclosed organelles. The membranes that envelop organelles ensure compartmentalization of their functions.
+* Organelles
+  * microscopy
+  * cell fractionation with chemical
+  * many plant cell organelles are nearly identical in form to those observed in animal cells
+* The endomembrane system is a group of interrelated organelles
+  * is a series of interrelated compartments enclosed by membranes.
+  *
+* Some organelles transform energy
+  * MITOCHONDRIA
+  * chloroplasts
+* A vacuole consists of a membrane-enclosed compartment full of water and dis- solved substances.
+* The microfilaments, intermediate filaments, and microtubules of the cytoskeleton provide the cell with shape, strength, and movement.
+* Motor proteins use cellular energy to change shape and move. They drive the bending movements of cilia and flagella, and transport organelles along microtubules within the cell.
+
+---
+
+Course 12
+
+* haploid: single set of chromosomes
+* dipolid: two complete sets of chromosomes (from each parents)
+* homologous: same genes, different variants -> generate slight different protein -> different phenotypes
+* Mitosis
+  * All chromosomes lines up -> segregate equally
+* Germ cells (Meiosis): produce gametes
+  * two Meiosis: reductional division -> equational division
+  * Don syndrome from wrong segregation
