@@ -432,3 +432,25 @@ Course 12
 * Germ cells (Meiosis): produce gametes
   * two Meiosis: reductional division -> equational division
   * Don syndrome from wrong segregation
+
+---
+
+Course 13
+
+* Mendel's theory
+  * first law: segregation of chromosomes during Meiosis 1
+  * second law: alignment of homologous chromosomes random
+* sex linked inheritance
+  * carried by a sex chromosome
+
+---
+
+Course 14
+
+* Linkage: traits inherited together
+* crossing over/ recombination: exchange of DNA between homologous chromosomes
+* recombination frequency is proportional to the liner distance between genes
+  * We need to consider the distance of crossover
+* 2 genes unlinked, but linked to centromere -> 50% parental ditype, 50% non parental ditype
+* 2 genes unlinked, unlined to centromere -> parental ditype: non parental ditype: tetratype = 1: 1: 4
+* 2 genes linked, PD >> NPD+TT
