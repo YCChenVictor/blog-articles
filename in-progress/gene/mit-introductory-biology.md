@@ -454,3 +454,11 @@ Course 14
 * 2 genes unlinked, but linked to centromere -> 50% parental ditype, 50% non parental ditype
 * 2 genes unlinked, unlined to centromere -> parental ditype: non parental ditype: tetratype = 1: 1: 4
 * 2 genes linked, PD >> NPD+TT
+
+---
+
+Course 15
+
+* Appearance/Behavior -> Gene
+* 75% of human disease-causing genes are thought to have a homologue in fruit flies.
+  * We use flies to find sleep disorder caused by gene
