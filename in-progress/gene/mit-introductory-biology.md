@@ -462,3 +462,128 @@ Course 15
 * Appearance/Behavior -> Gene
 * 75% of human disease-causing genes are thought to have a homologue in fruit flies.
   * We use flies to find sleep disorder caused by gene
+
+---
+
+Course 16
+
+* plasmid in bacteria
+  * antibiotic resistance
+  * Take a piece of eukaryotic and insert into the plasmid to use bacteria to clone the eukaryotic
+* Steps cloning
+  * cut DNA
+    * restriction endonuclease
+  * mix pieces
+  * ligation
+    * build covalent bond with enzyme
+  * selection
+    * DNA resistance strain
+    * functional complementation: Functional complementation is a concept in genetics and molecular biology that refers to the phenomenon where the function of a defective or missing gene in an organism can be restored by providing a functional copy of that gene from another source.
+      * auxotrophy- mutant that fails to make nutrient
+      * prototrophy- produces all nutrients
+* PCR
+* Editing
+  * CRISPER/cas9: RNA guided endonuclease
+
+---
+
+Course 17
+
+* Linkage map
+  * In order to see linkage, we need polymorphism or genetic variation
+* molecular markers
+  * simple sequence repeat
+  * gel electrophoresis
+    * The shorter DNA sequence go through faster
+  * Microsatellite repeats used as molecular markers for mapping
+* single nucleotide polymorphism
+  * variation of single nucleotide at a position in genome
+* restriction fragment length polym
+* DNA sequencing (sanger method)
+  * copy a piece with bacteria
+  * extract them and add free DNA bases (ACGT), DNA polymerase, DNA primer, terminator bases
+  * heat 93 degree -> two single strands
+  * lower to 50 degree -> DNA primer to bind with strand
+  * Increase to 60 degree -> enzyme (DNA polymerase) start from the primer and build the sequence again on one strand
+  * The enzyme will be terminated by the terminator base (ddGTP, ddCTP, ddATP, ddTTP)
+  * heat to 93 degree again -> The copied leaves from the strand
+  * repeat the above process again and again and create lots of copies
+  * put into the gel -> arrange from shortest to longest
+  * Use laser to detect these arranged copied DNA strand 
+    * The shortest one will be detect first and reveal the GCAT of it
+    * Then the second shortest one
+    * After all walk through the gel -> determines the sequence with colors
+
+---
+
+Course 18
+
+* positional gene cloning: cloning a gene based on its chromosome position
+  * linkage mapping -> chromosome position
+  * physical map -> cloned pieces of DNA (encompassing chromosome region)
+    * chromosome walk
+  * identify interesting gene
+    * is it transcribed in the tissue we are interested in
+    * is there a conserved gene with interested function
+* cDNA library
+  * cDNA means complementary DNA, means complement of an mRNA transcript
+  * use the reverse information like DNA -> RNA -> protein
+  * RNA -> DNA
+    * purify mRNA: use poly A tail -> use poly T tail to stick -> use A bead with poly T to drag mRNAs -> You got lots of mRNAs
+    * With those RNAs, do reverse transcriptase -> get one strand DNA with RNA
+    * degrade RNA, with RNAse H (enzyme) -> Have single strand DNA
+    * Generate dsDNA -> not genomic DNA
+      * no intrans
+      * no promoter/enhancer, no non-transcribed region
+      * poly A/T sequence
+    * representation of genes in cDNA library is proportional to expression level of the gene
+      * If the genotype is not express at all -> no protein -> not in cDNA library
+* hybridization (microarray)
+  * build matrix with different type of complementary RNA
+  * Then get the genes in cancer and normal cells and mark color on it
+  * Put those genes into those holes of the microarray
+  * If more color of cancer it means this cancer may be caused by more of these gene
+  * If more color of the normal cell, it means this cancer may be caused by lack of these gene
+
+---
+
+Course 19
+
+* protein trafficking: how these protein know where to go
+* where
+  * inside cell
+    * cytosol
+    * organelles
+      * mitochondria
+      * nucleus
+      * ...
+  * outside
+    * plasma membrane
+    * secreted
+* target the protein
+  * targeting sequence
+    * The sequence remains in the protein
+  * post translational modification
+    * lipidation: Lipidation is a natural post-translational modification where lipid molecules are covalently attached to proteins, influencing their localization, stability, and function within cells.
+      * after lipidation attaches lipid molecules to a protein, it can help direct the protein to specific locations within the cell, such as cellular membranes or particular organelles, ensuring the protein is properly localized to perform its function.
+    * pohspohorylation
+    * ubiquitination
+* NLS
+  * get protein in and out the nucleus
+* MLS
+  * get protein in and out the mitochondria
+
+---
+
+Course 20
+
+* chaperones proteins
+  * help folding protect against misfolding
+* proteasome
+  * shredder, chops up proteins into peptide (8 - 14 amino acids)
+* ubiquitin
+  * tag a protein that should be destroyed by proteasome
+* protein signaling
+  * receive signal
+  * transduce the signal
+  * response
