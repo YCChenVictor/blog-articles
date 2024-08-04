@@ -31,3 +31,10 @@ Crash Course Organic Chemistry
     * More Resonance structure -> electron moves in those atoms -> stronger electron -> H+ attached closer
   * The inductive effect: Electronegative substituents exerting an inductive effect withdraw electron density through sigma bonds, thereby increasing acidity by stabilizing the conjugate base.
   * The s character of the orbital: Higher s character in the hybrid orbital of the atom bonded to hydrogen increases acidity because the electron density is held closer to the nucleus, stabilizing the negative charge on the conjugate base.
+* Nucleophiles and Electrophiles
+  * Nucleophiles are lewis bases that donate electrons and attack electrophiles
+    * they like nucleus -> they are negative charged
+  * Electrophiles are lewis acids that are attacked by nucleophiles
+    * they like electron -> they are positive charged; ex: H+
+  * IR spectra can help us understand if a reaction really does happen
+  * cyanide is more than just a poison
