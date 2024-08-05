@@ -38,8 +38,23 @@ Crash Course Organic Chemistry
     * they like electron -> they are positive charged; ex: H+
   * IR spectra can help us understand if a reaction really does happen
   * cyanide is more than just a poison
-* Reaction Mechanisms
+* Reaction Mechanisms (course 13)
   * How to write reaction mechanism
     * Should find the rules in it
   * strong acids in water should be considered hydronium ions or sources of protons
   * electron rich atoms or regions of molecules are attracted to electron-poor atoms or regions of molecules
+* Alkene (course 14): during all the reaction, it is always finding the more stable form
+  * naming alkenes using the E/Z system
+  * MARKOVNIKOV's rule:  indicating which carbon atom of the double bond will receive the hydrogen atom
+  * the inductive effect and hyperconjugation
+    * inductive effect refers to the shift of electrons
+    * hyperconjugation explains the stabilization of molecules
+  * 1,2 hydride and 1,2-alkyl shift: rearrangement steps that can occur in certain alkene reactions
+* Thermodynamics and Energy Diagrams (course 15)
+  * thermodynamics
+  * enthalpy
+  * entrophy
+  * GIBBS free energy
+    * free energy diagram of chemical reactions
+  * difference between an intermediate and a transition state
+  * catalyst lower the activation energy energy of a reaction
