@@ -58,3 +58,19 @@ Crash Course Organic Chemistry
     * free energy diagram of chemical reactions
   * difference between an intermediate and a transition state
   * catalyst lower the activation energy energy of a reaction
+* alkene addition reactions (course 16)
+  * what is being added across the alkene
+  * regioselectivity (where will the groups add)
+  * stereochemistry (what is the expected stereochemistry of the added group)
+    * syn or anti addition
+* Alkene Redox Reactions (course 17)
+  * Oxidation and reduction in organic molecules
+    * losing electron is oxidation and gaining electron is reduction
+  * Add Two alcohol groups to an alkene, both syn and anti
+  * Use ozonolysis ($O_3$) to cleave a double bond
+* Alkyne Reactions & Tautomerization (keto -> enol)
+  * https://www.youtube.com/watch?v=SXbc4J1qWjE&ab_channel=KhanAcademy
+* Radical Reactions & Hammond's Postulate (course 19)
+  * Radical Reactions: A reaction will initiate other surrounding reactions -> increase stability
+    * Radical Reaction is faster than addition reaction
+  * Hammond's Postulate: The major product will the the one release more energy, which is more stable
