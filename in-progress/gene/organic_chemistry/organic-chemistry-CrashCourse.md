@@ -74,3 +74,11 @@ Crash Course Organic Chemistry
   * Radical Reactions: A reaction will initiate other surrounding reactions -> increase stability
     * Radical Reaction is faster than addition reaction
   * Hammond's Postulate: The major product will the the one release more energy, which is more stable
+* Substitution Reactions (course 20)
+  * https://www.youtube.com/watch?v=xoA1zMiCEB4&ab_channel=ProfessorDaveExplains
+  * One group is replaced by another group
+* Substitution Reactions - SN1 and SN2 Mechanisms
+  * SN1: It is a type of substitution reaction mechanism where the rate-determining step involves only one molecule.
+  * SN2: The reaction occurs in a single step, with the nucleophile attacking the substrate at the same time as the leaving group departs.
+  * In SN2 reactions, the nucleophile immediately replaces the leaving group in a single, concerted step, leading to a quick substitution. In contrast, SN1 reactions involve a slower, two-step process where the leaving group first departs, forming a carbocation intermediate, followed by the nucleophile's attack.
+  * When we see acid as a reactant or product -> SN1; reaction that take place under neutral or basic condition -> SN2
