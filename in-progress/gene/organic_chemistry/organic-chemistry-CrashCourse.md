@@ -77,8 +77,45 @@ Crash Course Organic Chemistry
 * Substitution Reactions (course 20)
   * https://www.youtube.com/watch?v=xoA1zMiCEB4&ab_channel=ProfessorDaveExplains
   * One group is replaced by another group
-* Substitution Reactions - SN1 and SN2 Mechanisms
+* Substitution Reactions - SN1 and SN2 Mechanisms (course 21)
   * SN1: It is a type of substitution reaction mechanism where the rate-determining step involves only one molecule.
   * SN2: The reaction occurs in a single step, with the nucleophile attacking the substrate at the same time as the leaving group departs.
   * In SN2 reactions, the nucleophile immediately replaces the leaving group in a single, concerted step, leading to a quick substitution. In contrast, SN1 reactions involve a slower, two-step process where the leaving group first departs, forming a carbocation intermediate, followed by the nucleophile's attack.
   * When we see acid as a reactant or product -> SN1; reaction that take place under neutral or basic condition -> SN2
+* E1 and E2 Reactions (course 22)
+  * E mean elimination, it means some molecules are removed; for example, adding a base -> get H+ from a big molecule -> the big molecule forms pi bond -> push out a molecule
+  * E1: Again 1 means the rate depends on one molecule. The reactant needs the molecule to leave first then the base can attack it and do the elimination.
+  * E2: Like SN2 the rate depends on both the attacker (base) and the leaving group.
+* Determining SN1, SN2, E1, and E2 Reactions (course 23)
+  * Methyls
+    * No $\beta-$HYDROGENS
+    * cannot do E2 or E1
+    * resistant to $S_N1$
+    * Only does $S_N2$
+  * Primary
+    * LG is at the end of the chain
+    * does not form very stable carbocations
+    * resistant to $S_N1$ and E1
+    * Does not react with poor nucleophiles
+  * Secondary
+    * able to do $S_N2$ and E2
+    * more stable carbocation
+    * $S_N1$ and E1 also possible
+  * Tertiary
+    * Most stable carbocations
+    * able to do $S_N1$ and E1 with weak nuclephiles
+    * $S_N2$ block by steric hindrance
+    * E2 possible
+* Alcohols, Ethers, and Epoxides (course 24)
+  * I think this episode just tries to introduce them
+* Synthesis and Column Chromatography (course 25)
+  * Chromatography separates organic compounds based on polarity
+  * Thin layer chromatography tells us how well our reaction went
+  * Flash chromatography lets us separate larger quantities of compound
+* How to Identify Molecules (course 26)
+  * Nuclear magnetic resonance helps us visualize the atoms in molecules as peaks in a spectrum
+  * In proton NMR, the integral tells us how many hydrogens each peak represents
+  * nuclei close to electronegative atoms appear downfield on a spectrum
+    * When a nucleus is close to an electronegative atom, the electron density around it decreases. This reduction in electron density weakens the local magnetic field shielding the nucleus, making it more susceptible to the external magnetic field applied during NMR analysis. As a result, the nucleus resonates at a higher frequency, leading to a downfield shift on the NMR spectrum.
+  * split peaks, or multiplicity, give clues about how atoms are joined to other atoms
+  * The x-axis of an NMR spectrum represents the chemical shift in parts per million (ppm), indicating the resonance frequency of nuclei relative to a standard reference compound, reflecting their electronic environment.
