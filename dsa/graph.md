@@ -59,7 +59,7 @@ Here we are going to use adjacency list to build the class of undirected graph.
 
 * Basic data structure of the graph above
   ```javascript
-  const graph = { // adjacency lists
+  const graph = {
     0: [1, 2],
     1: [0, 1, 3],
     2: [0, 3],
