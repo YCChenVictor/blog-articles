@@ -143,6 +143,26 @@ we have
 
 $$u_i(s_i, s'_{-i}) >= u_i(s'_i, s'_{-i})$$
 
+A dominant strategy means that each player has a strategy that is better than all other strategies, regardless of what the other players do. In other words, a player's dominant strategy yields a higher payoff than any other strategy, no matter what the strategies chosen by the other players are.
+
+#### Vickrey's mechanism
+
+Given the payoff = value - price
+
+If a player has highest bid -> win the game -> pay the second highest bid -> Player has $v$ value on this object
+
+* bid price as player's value
+  * second highest bid > player's value -> payoff = 0
+  * second highest bid < player's value -> payoff > 0
+* bid price lower than player's value
+  * second highest bid > bid price -> payoff = 0
+  * second highest bid < bid price -> payoff > 0
+* bid price higher than player's value -> payoff < 0 (impossible)
+
+To make the player bid price lower than this player's own value, he need to know the other player's value first. Given this player does not know it, the biding price will gradually increase. -> Bid this player's own value.
+
+Given all players' strategy is to bid their own value -> dominant strategy.
+
 ## Reference
 
 [algorithmic-game-theory](https://www.cs.cmu.edu/~sandholm/cs15-892F13/algorithmic-game-theory.pdf)
