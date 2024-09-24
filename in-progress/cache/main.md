@@ -64,12 +64,4 @@ Caching is used to store frequently accessed data closer to where it's needed, r
 * Reverse Proxy Caches: Reverse proxy caches sit between clients and web servers, caching responses from web servers and serving them to clients. This helps reduce the load on web servers, improves response times, and enhances scalability.
 * DNS Caches: DNS caches store DNS records for domain name resolution. They help reduce DNS lookup times by caching previously resolved domain name mappings.
 
-## What?
-
-## Other
-
-* NPM
-  * npm is a great tool to manage dependencies in your app using a module bundler.
-  * CDN vs NPM: My recommendation: For development and trying out stuff a CDN is fine. For an actual application I would advise you to compile and minify everything into one file and include that
-
 ## Reference
