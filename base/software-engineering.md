@@ -2,7 +2,7 @@
 
 ## Purpose
 
-To help me develop good websites.
+To help me build good software.
 
 ## Concept
 
