@@ -8,19 +8,18 @@ To solve problems more efficiently, we aim to optimize both time and space compl
 
 We can decompose all the programming logics into four actions: create, read, update, delete. The **time complexity** of CRUD an element in specific data structure is as follow: (The order is based on popularity)
 
-We can decompose all the programming logics into four actions: create, read, update, delete. The **time complexity** of CRUD an element in specific data structure is as follow: (The order is based on popularity)
+| Data Structure  | Create       | Read        | Update      | Delete      |
+|-----------------|--------------|-------------|-------------|-------------|
+| Arrays          | O(1) - O(n)  | O(1)        | O(1)        | O(1) - O(n) |
+| Linked Lists    | O(1)         | O(n)        | O(n)        | O(1)        |
+| Hash Tables     | O(1)         | O(1)        | O(1)        | O(1)        |
+| Trees           | O(log n)     | O(log n)    | O(log n)    | O(log n)    |
+| Graphs          | O(1)         | O(v+e)      | O(1)        | O(v+e)      |
+| Stacks          | O(1)         | O(n)        | O(n)        | O(1)        |
+| Queues          | O(1)         | O(n)        | O(n)        | O(1)        |
+| Heaps           | O(log n)     | O(1)        | O(log n)    | O(log n)    |
+| Tries           | O(k)         | O(k)        | O(k)        | O(k)        |
 
-|  | Create | Read | Update | Delete |
-|:-:|:-:|:-:|:-:|:-:|
-| Arrays | O(1) - O(n) | O(1) | O(1) | O(1) - O(n) |
-| Linked Lists | O(1) | O(n) | O(n) | O(1) |
-| Hash Tables | O(1) | O(1) | O(1) | O(1) |
-| Trees | O(log n) | O(log n) | O(log n) | O(log n) |
-| Graphs | O(1) | O(v+e) | O(1) | O(v+e) |
-| Stacks | O(1) | O(n) | O(n) | O(1) |
-| Queues | O(1) | O(n) | O(n) | O(1) |
-| Heaps | O(log n) | O(1) | O(log n) | O(log n) |
-| Tries | O(k) | O(k) | O(k) | O(k) |
 
 In this table, n is the number of elements in the data structure, v is the number of vertices, e is the number of edges, and k is the length of the word for tries. Note that these are average case complexities, and the actual time complexity can vary based on the specific implementation and usage of the data structure.
 
