@@ -95,20 +95,26 @@ Here we are going to use adjacency list to build the class of undirected graph.
       return Object.keys(this.adjacencyList);
     }
 
-    getEdges() { // It will return Set of arrays
-      const edges = new Set()
-      for (let [vertexOne, vertexTwos] of Object.entries(this.adjacencyList)) {
-        vertexTwos.forEach((vertexTwo) => {edges.add([parseInt(vertexOne), vertexTwo])})
+    getEdges() {
+      const edges = new Set();
+      for (let [v1, neighbors] of Object.entries(this.adjacencyList)) {
+        for (let v2 of neighbors) {
+          const edge = [v1, v2].sort().join("-");
+          edges.add(edge);
+        }
       }
-      return edges
+      return edges;
     }
 
     findVertex(vertex) {
-      return this.vertices.has(vertex)
+      return this.adjacencyList.hasOwnProperty(vertex);
     }
 
     findEdge(vertex1, vertex2) {
-      return this.vertices.get(vertex1).has(vertex2) && this.vertices.get(vertex2).has(vertex1)
+      return (
+        this.adjacencyList[vertex1]?.includes(vertex2) &&
+        this.adjacencyList[vertex2]?.includes(vertex1)
+      );
     }
 
     // Update
@@ -128,9 +134,10 @@ Here we are going to use adjacency list to build the class of undirected graph.
 
     removeVertex(vertex) {
       while (this.adjacencyList[vertex].length) {
-        neighborVertex = this.adjacencyList[vertex].pop();
-        this.removeEdge(vertex, neighborVertex)
+        const neighborVertex = this.adjacencyList[vertex].pop();
+        this.removeEdge(vertex, neighborVertex);
       }
+      delete this.adjacencyList[vertex];
     }
   }
 
@@ -229,10 +236,10 @@ Here we are going to use adjacency list to build the class of undirected graph.
 * Time complexity
   * Adding a vertex: O(1) (constant time)
   * Adding an edge: O(1) (constant time)
-  * Removing a vertex: O(V + E) (linear time, where V is the number of vertices and E is the number of edges)
-  * Removing an edge: O(1) (constant time)
-  * Finding a vertex: O(V) (linear time)
-  * Finding an edge: O(E) (linear time)
+  * Removing an edge: O(degree₁ + degree₂), where degree₁ = number of neighbors of vertex1 and degree₂ = number of neighbors of vertex2
+  * Removing a vertex: Each neighbor causes one removing an edge -> ∑ [O(d + deg(neighbor))] -> O(d² + ∑ deg(neighbor)) ≤ 2E -> O(E)
+  * Finding a vertex: O(1)
+  * Finding an edge: O(degree₁ + degree₂), where degree₁ = number of neighbors of vertex1 and degree₂ = number of neighbors of vertex2
 
 ### Traversal Algorithm
 
@@ -398,8 +405,6 @@ Given the graph above
 * Detecting cycles: DFS > BFS because DFS will go deeper first, which will return to a visited node on a route first, compared to BFS.
 * Find shortest path: DFS < BFS because BFS does level-by-level exploration. When we find a target nodes, we can stop the exploration and return the path from a node to target node.
 
-## What?
-
 ### Route Between Nodes
 
 * Problem: Given a **directed** graph, design an algorithm to find out whether there is a route between two nodes.
@@ -536,20 +541,24 @@ Given the graph above
 If we meet the visited node, it means there is circle
 
 ```js
-function detectCircle(start) {
-  let visited = new Set()
+function hasCycle(node) {
+  const visited = new Set();
 
-  return dfs(start)
+  function dfs(curr, parent) {
+    visited.add(curr);
 
-  function dfs(node) {
-    visited.add(node.val)
-    for(neighbor of node.neighbors) {
-      if(visited.has(neighbor.val)) {
-        return false
+    for (const neighbor of curr.neighbors) {
+      if (!visited.has(neighbor)) {
+        if (dfs(neighbor, curr)) return true;
+      } else if (neighbor !== parent) { // When neighbor is visited but not parent
+        return true; // cycle
       }
-      dfs(neighbor)
     }
+
+    return false;
   }
+
+  return dfs(node, null);
 }
 ```
 

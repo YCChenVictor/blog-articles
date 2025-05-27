@@ -25,17 +25,16 @@ In this table, n is the number of elements in the data structure, v is the numbe
 
 ## Example
 
-* [array](/dsa/array)
-* [linked list](/dsa/linked-list)
-* [hash table](/dsa/hash-table)
-* [tree](/dsa/tree)
-* [graph](/dsa/graph)
-* [stack](/dsa/stack)
-* [queue](/dsa/queue)
-* [heap](/dsa/heap)
-* [tries](/dsa/tries)
-* [dynamic programming](/dsa/dynamic-programming)
-* [sorting](/dsa/sorting)
+* Array: Fast index access, fixed size.
+* Linked List: Frequent inserts/deletes.
+* Hash Table: Fast lookup by key.
+* Tree: Sorted data, range queries.
+* Graph: Represent networks.
+* Stack: LIFO (e.g., recursion).
+* Queue: FIFO (e.g., tasks).
+* Heap: Get min/max fast.
+* Trie: Prefix searches.
+* Union-Find: Group tracking, dynamic connectivity.
 
 ## reference
 

@@ -36,7 +36,7 @@ Given the length of buckets is N, meaning there are N keys, if we want to search
 
 The time complexity = $$O(A + B)$$, where A is the length of bucket and B is the length of linked list.
 
-* A is actually 1 because the keys are stored in array, so we can access the item in O(1). Please refer to [array]() to see why read an element with given index is O(1).
+* A is actually 1 because the keys are stored in array, so we can access the item in O(1). Please refer to array to see why read an element with given index is O(1).
 * B is usually close to 1 if we making the collisions, meaning values map to same key, as low as possible. As a result, the time complexity is actually O(1).
 
 ### two sum
@@ -88,37 +88,12 @@ The time complexity = $$O(A + B)$$, where A is the length of bucket and B is the
   })
   ```
 
-## Example
+### Hash Function
 
-Real world example: counting the words of an article
-
-```javascript
-class WordCounter {
-  constructor() {
-    this.wordCountMap = new Map();
-  }
-
-  countWords(article) {
-    const words = article.trim().split(/\s+/);
-    for (const word of words) {
-      const normalizedWord = word.toLowerCase();
-      const count = this.wordCountMap.get(normalizedWord) || 0;
-      this.wordCountMap.set(normalizedWord, count + 1);
-    }
-  }
-
-  getWordCount(word) {
-    const normalizedWord = word.toLowerCase();
-    return this.wordCountMap.get(normalizedWord) || 0;
-  }
-
-  getTopWords(limit) {
-    const sortedEntries = Array.from(this.wordCountMap.entries()).sort((a, b) => b[1] - a[1]);
-    return sortedEntries.slice(0, limit).map(([word, count]) => ({ word, count }));
-  }
-}
-```
+* Hash function: The key is passed through a hash function that generates a unique hash value, which is then used to compute an index in an array (hash table).
+* Array index: The computed hash value is used as an index in the array, and this index determines where to store or find the corresponding item (value).
+* Direct access: When searching for an item using the key, the hash function calculates the same hash value, which directly maps to the array index, allowing for fast, constant-time retrieval of the item.
 
 ## Reference
 
-GPT
+GPT & Myself

@@ -307,16 +307,18 @@ A Binary Search Tree (BST) is a data structure with nodes containing a value and
   
   module.exports = BinarySearchTree
   ```
-* Time complexity of CRUD
-  * Create a node: O(log n) - O(n)
-    * Inserting a new node into a binary tree requires finding the correct position for the new node in the tree. In the worst case, this involves traversing the height of the tree, which has a time complexity of O(log n) for a balanced binary tree and O(n) for an unbalanced binary tree.
-  * read: O(log n) - O(n)
-    * The number of operation is proportionate to the layer of nodes, so the time complexity is O(log n) in balanced tree and O(n) in unbalanced tree; no matter what the traversal method is.
-  * update: O(log n) - O(n)
-    * Before updating the value of a node, we need to traverse to the target node, which is proportionate to the layers of tree, so it is O(log n) for balanced tree and O(n) for unbalanced tree.
-  * delete: O(log n) to O(n)
-    * Deleting a node from a binary tree requires finding the node to be deleted and then rearranging the tree to maintain its properties. In the worst case, this also involves traversing the height of the tree, which has a time complexity of O(log n) for a balanced binary tree and O(n) for an unbalanced binary tree.
-* spec
+#### Time complexity
+  
+* Create a node: O(log n) - O(n)
+  * Inserting a new node into a binary tree requires finding the correct position for the new node in the tree. In the worst case, this involves traversing the height of the tree, which has a time complexity of O(log n) for a balanced binary tree and O(n) for an unbalanced binary tree.
+* read: O(log n) - O(n)
+  * The number of operation is proportionate to the layer of nodes, so the time complexity is O(log n) in balanced tree and O(n) in unbalanced tree; no matter what the traversal method is.
+* update: O(log n) - O(n)
+  * Before updating the value of a node, we need to traverse to the target node, which is proportionate to the layers of tree, so it is O(log n) for balanced tree and O(n) for unbalanced tree.
+* delete: O(log n) to O(n)
+  * Deleting a node from a binary tree requires finding the node to be deleted and then rearranging the tree to maintain its properties. In the worst case, this also involves traversing the height of the tree, which has a time complexity of O(log n) for a balanced binary tree and O(n) for an unbalanced binary tree.
+
+#### Spec
   ```javascript
   const BinaryTree = require('../examples/binary_tree.js');
   
@@ -402,8 +404,7 @@ A Binary Search Tree (BST) is a data structure with nodes containing a value and
 
 Given a binary tree, return the height; for example
 
-* QA
-  * example 1
+* example 1
   ```bash
   Input:
        1
@@ -411,7 +412,7 @@ Given a binary tree, return the height; for example
      2    3
   Output: 2
   ```
-  * example 2
+* example 2
   ```bash
   Input:
     2
@@ -421,70 +422,74 @@ Given a binary tree, return the height; for example
    3
   Output: 3
   ```
-* code example
-  ```javascript
-  function maxDepth(node) {
-    if(node == null) {
-      return 0
-    }
-  
-    lDepth = maxDepth(node.left)
-    rDepth = maxDepth(node.right)
-  
-    if(lDepth > rDepth) {
-      return lDepth + 1
-    } else {
-      return rDepth + 1
-    }
+
+#### code example
+
+```javascript
+function maxDepth(node) {
+  if(node == null) {
+    return 0
   }
-  
-  module.exports = maxDepth
-  ```
-* spec
-  ```javascript
-  const Node = require('../examples/binary_tree_node.js')
-  const maxDepth = require('../examples/max_depth.js')
-  
-  describe('MaxDepth', () => {
-    let tree
-  
-    describe('example 1', () => {
-      // Input:
-      //    1
-      //   /  \
-      //  2    3
-      // Output: 2
-      beforeEach(async () => {
-        tree = new Node(1)
-        tree.left = new Node(2)
-        tree.right = new Node(3)
-      })
-    
-      test('#', () => {  
-        expect(maxDepth(tree)).toEqual(2)
-      })
+
+  lDepth = maxDepth(node.left)
+  rDepth = maxDepth(node.right)
+
+  if(lDepth > rDepth) {
+    return lDepth + 1
+  } else {
+    return rDepth + 1
+  }
+}
+
+module.exports = maxDepth
+```
+
+#### Spec
+
+```javascript
+const Node = require('../examples/binary_tree_node.js')
+const maxDepth = require('../examples/max_depth.js')
+
+describe('MaxDepth', () => {
+  let tree
+
+  describe('example 1', () => {
+    // Input:
+    //    1
+    //   /  \
+    //  2    3
+    // Output: 2
+    beforeEach(async () => {
+      tree = new Node(1)
+      tree.left = new Node(2)
+      tree.right = new Node(3)
     })
-    
-    describe('example 2', () => {
-      // Input:
-      //   2
-      //    \
-      //     1
-      //    /
-      //  3
-      // Output: 3
-      beforeEach(async () => {
-        tree = new Node(2)
-        tree.right = new Node(1)
-        tree.right.left = new Node(3)
-      })
   
-      test('#', () => {
-        expect(maxDepth(tree)).toEqual(3)
-      })
+    test('#', () => {  
+      expect(maxDepth(tree)).toEqual(2)
     })
   })
-  ```
+  
+  describe('example 2', () => {
+    // Input:
+    //   2
+    //    \
+    //     1
+    //    /
+    //  3
+    // Output: 3
+    beforeEach(async () => {
+      tree = new Node(2)
+      tree.right = new Node(1)
+      tree.right.left = new Node(3)
+    })
+
+    test('#', () => {
+      expect(maxDepth(tree)).toEqual(3)
+    })
+  })
+})
+```
 
 ### Minimal Tree
 
@@ -766,59 +771,6 @@ Given a binary tree, return the height; for example
     return null
   }
   ```
-
-## Real world example
-
-A real world example of implementing a decision tree
-
-```javascript
-class DecisionTreeNode {
-  constructor(question, yesNode, noNode) {
-    this.question = question;
-    this.yesNode = yesNode;
-    this.noNode = noNode;
-  }
-
-  ask() {
-    console.log(this.question);
-    let answer = prompt("Enter yes or no:");
-    if (answer === "yes") {
-      if (this.yesNode instanceof DecisionTreeNode) {
-        return this.yesNode.ask();
-      } else {
-        console.log(this.yesNode);
-      }
-    } else if (answer === "no") {
-      if (this.noNode instanceof DecisionTreeNode) {
-        return this.noNode.ask();
-      } else {
-        console.log(this.noNode);
-      }
-    } else {
-      console.log("Invalid input. Please enter yes or no.");
-      return this.ask();
-    }
-  }
-}
-
-let root = new DecisionTreeNode(
-  "Is it a mammal?",
-  new DecisionTreeNode(
-    "Does it have fur?",
-    new DecisionTreeNode("Is it a cat?", "It's a cat!"),
-    new DecisionTreeNode("Is it a whale?", "It's a whale!")
-  ),
-  new DecisionTreeNode(
-    "Does it have feathers?",
-    new DecisionTreeNode("Is it a bird?", "It's a bird!"),
-    new DecisionTreeNode("Is it a snake?", "It's a snake!")
-  )
-);
-
-root.ask();
-```
-
-Each node has a question, a yesNode branch and a noNode branch. The ask() method of the node prompts the user to answer the question and then follows the appropriate branch based on the answer. If the branch is another DecisionTreeNode, it recursively calls the ask() method on that node. If the branch is a leaf node, it simply returns the corresponding result.
 
 ## Reference
 
