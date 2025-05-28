@@ -6,8 +6,7 @@ Learning about stacks is essential for understanding how function calls and recu
 
 ## Concept
 
-![stack](assets/img/stack)
-
+![stack](/assets/img/stack.png)
 [Image Source](https://www.geeksforgeeks.org/stack-data-structure/)
 
 Stack uses mechanism of first in last out (FILO), we can only add or pop the top element.
@@ -300,107 +299,6 @@ Stack uses mechanism of first in last out (FILO), we can only add or pop the top
     })
   });
   ```
-* Generalize (TBC)
-  * Code example
-    ```javascript
-    class KStacksInOneArray {
-      constructor(k, n) { // k means number of stacks and n means length of array
-        this.k = k
-        this.elements = new Array(n).fill(null);
-        this.starts = [];
-        for (let i = 0; i < k; i++) {
-          this.starts.push(Math.ceil(n/k) * i)
-        }
-        this.ends = [];
-        for (let i = 0; i < k; i++) {
-          if (i == (k - 1)) {
-            this.ends.push(n - 1)
-          } else {
-            this.ends.push(this.starts[i] + Math.floor(n/k))
-          }
-        }
-      }
-    
-      push(kth, value) { // kth = 0 -> first stack in array ...
-        if (kth > this.k) {
-          console.log('no stack')
-          return
-        }
-        if (this.starts[kth - 1] == this.ends) {
-          console.log('no more space')
-          return
-        }
-        this.elements[this.starts[kth - 1]] = value
-        this.starts[kth - 1] += 1
-      }
-    
-      pop(kth) {
-        if((this.elements[this.starts[kth - 1]] === undefined) || (this.elements[this.starts[kth - 1] - 1] === null)) {
-          console.log('no elements')
-          return
-        } else {
-          this.elements[this.starts[kth - 1] - 1] = null
-          this.starts[kth - 1] -= 1
-        }
-      }
-    }
-    ```
-  * spec (TBC)
-  * usage
-    ```javascript
-    let test = new KStacksInOneArray(3, 17);
-    test.push(3, 16)
-    test.pop(3)
-    console.log(test.starts)
-    console.log(test.elements)
-    ```
-  * more general: The first approach did not use the space in array efficiently because we cannot put more data into an full stack even if there are space in other stacks. (TBC)
-
-
-
-### Stack Min
-
-* Problem: How would you design a stack which, in addition to push and pop, has a function min which returns the minimum element? Push, pop and min should ail operate in 0 ( 1 ) time.
-* Example: Stack [3, 1, 9, 8] => return 1
-* Edge Case: Seems no
-* Code example:
-  ```javascript
-  class StackMin {
-    constructor() {
-      this.items = []
-      this.min
-    }
-
-    push(value) {
-      
-    }
-
-    pop() {
-
-    }
-
-    min() {
-
-    }
-  }
-  ```
-* Test:
-  ```javascript
-  describe('StackMin', () => {
-    let testStack;
-    beforeEach(() => {
-      testStack = new Stack();
-      const values = [74, 1, 3, 20, 888, 62, 33];
-      for(let i = 0; i < values.length; i++){
-          testStack.push(values[i]);
-      }
-    });
-
-    test('#min', () => {
-
-    })
-  })
-  ```
 
 ### Stack of Plates
 
@@ -481,62 +379,6 @@ Stack uses mechanism of first in last out (FILO), we can only add or pop the top
     })
   })
   ```
-
-### Sort Stack
-
-* Question: Write a program to sort a stack such that the smallest items are on the top. You can use an additional temporary stack, but you may not copy the elements into any other data structure (such as an array). The stack supports the following operations: push, pop, peek, and is Empty.
-* Example
-  * Can only use additional temporary stack
-  * Cannot copy elements
-  * Can use a placeholder to hold a value temporary
-* Code
-  ```javascript
-  function sortStack(stack) {
-    // Input = [3, 1, 2, 4]
-    // Output = [4, 3, 2, 1]
-    const additionalStack = new Stack()
-    let topPlaceholder
-
-    while(!stack.empty()) {
-      topPlaceholder = stack.pop()
-
-      while(!additionalStack.empty() && additionalStack.peek() > topPlaceholder) {
-        stack.push(additionalStack.pop())
-      }
-
-      additionalStack.push(topPlaceholder)
-
-      console.log('==========')
-      console.log(stack)
-      console.log(additionalStack)
-
-      // this is really hard to come out the idea
-      // the idea is to compare the size of the placeholder, if larger than placeholder, move the larger items from additional to the stack and then put the placeholder to the additional stack.
-      // Actually, it is trying to make the additional stack from small to large and make the stack from large to small. Each round it tries to move an item to additional stack and before it puts the item into, if there is any item larger than this placeholder, move them to the stack first.
-    }
-
-    while (!additionalStack.isEmpty()) {
-      stack.push(additionalStack.pop())
-    }
-
-    return stack
-  }
-  ```
-* Test
-  ```javascript
-  describe('sort stack', () => {
-    // bottom -> top
-    // Input = [3, 1, 2, 4]
-    // Output = [4, 3, 2, 1]
-    test('#', () => {
-      let stack = new Stack()
-      [3, 1, 2, 4].forEach((item) => {stack.push(item)})
-      expect(sortStack(stack).items).toEqual([4, 3, 2, 1])
-    })
-  })
-  ```
-
-## Real world example
 
 ## Reference
 

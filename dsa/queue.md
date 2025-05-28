@@ -8,8 +8,7 @@ Learning about queues is important in computer science and programming as it hel
 
 ### Visualization
 
-![queue](assets/img/queue)
-
+![queue](assets/img/queue.png)
 [Source](https://www.geeksforgeeks.org/queue-data-structure/)
 
 ### Code
@@ -92,7 +91,7 @@ Learning about queues is important in computer science and programming as it hel
 * Time complexity
   * Create an item: **O(1)**, The enqueue method will concatenate item on the last without shifting elements, so the complexity will not increase when the number of elements increases.
   * Read an item: **O(1)**, The read method can only read the front element of the queue, so the complexity will not increase when the number of elements increases.
-  * Update an item: **O(n)**, It is not normal to have update operation in queue. We achieve by dequeuing the elements and then enqueuing back. As a result, the time complexity i s O(n) on worst case.
+  * Update an item: **O(n)**, It is not normal to have update operation in queue. We achieve by dequeuing the elements and then enqueuing back. As a result, the time complexity is O(n) on worst case.
   * Delete an item: **O(1)** because when removing the last element, there is no need to shift or modify any other elements, making it independent of the queue's size.
 
 ### Queue via Stacks
@@ -294,25 +293,5 @@ Learning about queues is important in computer science and programming as it hel
     })
   });
   ```
-
-### Sliding Window Maximum
-
-* Problem: Given an array of integers and a window size k, the problem is to find the maximum element in each window of size k as it slides from left to right through the array.
-* Example
-  * Input: [1, 3, -1, -3, 5, 3, 6, 7]; window size = 3
-  * Output: [3, 3, 5, 5, 6, 7] because 3 out of [1, 3, -1], 3 out of [3, -1, -3], ...
-* First try (brute force)
-  ```javascript
-  function SlideWindowMaximum(array, window_size) {
-    queue = [array[0], array[1], array[2]] // use slice (2023/07/05)
-    for(i = 0; i < array.length; i++) {
-      
-    }
-  }
-  ```
-
-## Real world example
-
-TBC
 
 ## Reference

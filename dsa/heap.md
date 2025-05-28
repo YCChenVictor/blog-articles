@@ -21,57 +21,68 @@ Although heap is a complete binary tree, we usually use array to construct heap 
     D((20)) --> G((25))
     D((20)) --> H((30))
   ```
+  Index:  0   1   2   3   4   5   6  
+  Value: [10, 15, 20, 18, 17, 25, 30]
 * Code example
   ```javascript
   class MinHeap {
-    constructor(values) {
-      this.values = values
-      this.heapify()
+    constructor(values = []) {
+      this.values = values;
+      this.heapify();
     }
   
-    // create
     insert(value) {
-      this.values.push(value)
-      this.heapify()
+      this.values.push(value);
+      this._siftUp(this.values.length - 1);
     }
   
-    // read
     findMin() {
-      return this.values[0]
+      return this.values[0];
     }
   
-    // update
     update(value, index) {
-      this.values[index] = value
-      this.heapify()
-      return this.values
+      const old = this.values[index];
+      this.values[index] = value;
+      if (value < old) this._siftUp(index);
+      else this._siftDown(index);
     }
   
-    // destroy
     delete() {
-      this.values.shift()
-      this.heapify()
+      const last = this.values.pop();
+      if (this.values.length > 0) {
+        this.values[0] = last;
+        this._siftDown(0);
+      }
     }
   
-    heapify() { // bottom up approach
-      for(let i = this.values.length - 1; i >= 0; i--) {
-        const leftChildIndex = i * 2 + 1
-        const rightChildIndex = i * 2 + 2
-      
-        let smallestIndex = i
-        if(this.values[i] > this.values[leftChildIndex]) {
-          smallestIndex = leftChildIndex
-        }
-        if(this.values[smallestIndex] > this.values[rightChildIndex]) {
-          smallestIndex = rightChildIndex
-        }
-        if(smallestIndex !== i) {
-          const tmp = this.values[i]
-          this.values[i] = this.values[smallestIndex]
-          this.values[smallestIndex] = tmp
-          this.heapify(leftChildIndex)
-          this.heapify(rightChildIndex)
-        }
+    heapify() {
+      for (let i = Math.floor(this.values.length / 2) - 1; i >= 0; i--) {
+        this._siftDown(i);
+      }
+    }
+  
+    // _siftUp swaps with the parent if the current node is smaller, repeating until it's in the correct position.
+    _siftUp(i) {
+      while (i > 0) {
+        let parent = Math.floor((i - 1) / 2);
+        if (this.values[i] >= this.values[parent]) break;
+        [this.values[i], this.values[parent]] = [this.values[parent], this.values[i]];
+        i = parent;
+      }
+    }
+  
+    // 
+    _siftDown(i) {
+      const n = this.values.length;
+      while (true) {
+        let left = 2 * i + 1; // left children
+        let right = 2 * i + 2; // right children
+        let smallest = i;
+        if (left < n && this.values[left] < this.values[smallest]) smallest = left;
+        if (right < n && this.values[right] < this.values[smallest]) smallest = right;
+        if (smallest === i) break;
+        [this.values[i], this.values[smallest]] = [this.values[smallest], this.values[i]];
+        i = smallest;
       }
     }
   }
@@ -116,121 +127,6 @@ Although heap is a complete binary tree, we usually use array to construct heap 
   ```
 
 ### Max Heap
-
-* Definition: A max heap is a complete binary tree where the value of each node is greater than or equal to the values of its child nodes, with the maximum value located at the root node.
-* Visualization
-  ```mermaid
-  graph TD
-    B((20)) --> C((18))
-    B((20)) --> D((15))
-    C((18)) --> E((10))
-    C((18)) --> F((12))
-    D((15)) --> G((8))
-    D((15)) --> H((7))
-    E((10)) --> I((5))
-    E((10)) --> J((6))
-  ```
-* Code example
-  ```javascript
-  class MaxHeap {
-    constructor(values) {
-      this.heap = values;
-    }
-    
-    // create
-    insert(value) {
-      this.heap.unshift(value)
-      this.heapify()
-    }
-  
-    // read
-    findMax() {
-      return this.heap[0]
-    }
-  
-    values() {
-      return this.heap
-    }
-  
-    // update
-    update(value, index) {
-      this.heap[index] = value
-      this.heapify()
-    }
-  
-    // destroy
-    delete() {
-      // In max heap, we usually remove the maximum value
-      this.heap.shift()
-      this.heapify()
-    }
-  
-    heapify(i = 0) {
-      const leftChildIndex = i * 2 + 1
-      const rightChildIndex = i * 2 + 2
-  
-      if (i > this.heap.length) return
-  
-      let largest = i
-      if (leftChildIndex < this.heap.length && this.heap[leftChildIndex] > this.heap[largest]) {
-        largest = leftChildIndex
-      }
-      if (rightChildIndex < this.heap.length && this.heap[rightChildIndex] > this.heap[largest]) {
-        largest = rightChildIndex
-      }
-  
-      if (largest !== i) {
-        // Swap the current node with the largest child
-        const temp = this.heap[i];
-        this.heap[i] = this.heap[largest];
-        this.heap[largest] = temp;
-      }
-  
-      // Recursively heapify the affected child's subtree
-      this.heapify(leftChildIndex);
-      this.heapify(rightChildIndex);
-    }
-  }
-  
-  module.exports = MaxHeap
-  ```
-* Spec
-  ```javascript
-  const MaxHeap = require('./max_heap.js')
-
-  describe('Max Heap', () => {
-    let heap
-    beforeEach(async () => {
-      heap = new MaxHeap([20, 9, 15, 5, 7, 10])
-    });
-    
-    test('insert', () => {
-      heap.insert(3)
-      expect(heap.values()).toEqual([20, 15, 10, 3, 5, 7, 9])
-    })
-  
-    test('update', () => { // check next time. It's wrong
-      heap.update(3, 2)
-      // [20, 9, 3, 5, 7, 10]
-      expect(heap.values()).toEqual([20, 9, 10, 5, 7, 3])
-    })
-  
-    test('delete', () => {
-      heap.delete()
-      expect(heap.values()).toEqual([15, 10, 5, 7, 9])
-    })
-  
-    test('findMax', () => {
-      expect(heap.findMax()).toEqual(20)
-    })
-  
-    test('heapify', () => {
-      let randomHeap = new MaxHeap([10, 20, 5, 15, 9, 7])
-      randomHeap.heapify()
-      expect(randomHeap.values()).toEqual([20, 15, 7, 10, 9, 5])
-    })
-  })
-  ```
 
 ## Reference
 
