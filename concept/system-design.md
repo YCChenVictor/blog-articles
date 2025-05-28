@@ -69,9 +69,9 @@ If you do not know which frontend, backend, database to choose, just choose the 
 
 Ok, based on above design, we now should have components, user interface, URL shortening, analytics, user account management, APIs, services, database, and external integrations and we can start to think about the design patterns for them.
 
-Any user interface related frontend and backend, we should use [MVC structure]. That is, we break Create, Read, Update, Destroy (CRUD) of links and CRUD of users into [RESTful] design, which is going to return us methods mapping GET (Read), POST (Create), PUT (Update), DELETE (Destroy).
+Any user interface related frontend and backend, we should use **MVC structure**. That is, we break Create, Read, Update, Destroy (CRUD) of links and CRUD of users into **RESTful** design, which is going to return us methods mapping GET (Read), POST (Create), PUT (Update), DELETE (Destroy).
 
-Now we can successfully CRUD the data. The next step is to return desired services for users with [design pattern].
+Now we can successfully CRUD the data. The next step is to return desired services for users with **design pattern**.
 
 * URL shortening service should use singleton pattern to avoid multiple shortened URL to be created for one URL.
 * Analytics service should use observer or strategy pattern
@@ -93,9 +93,9 @@ Sometimes we do not need to re-design a system but we want to solve an algorithm
 
 As the traffic increases, we may need some common solutions to solve this issue.
 
-* [scalability]
-* [distributed system]
-* [cloud computing]
+* scalability
+* distributed system
+* cloud computing
 * failures: Systems are prone to failures, and it's crucial to plan for them. Identify potential points of failure in your system and design appropriate measures to handle them.
   * Redundancy
   * Fault tolerance

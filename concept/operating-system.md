@@ -13,26 +13,25 @@ Operating System serves as the communicator between computer hardware and comput
 ```mermaid
 graph TD
   user(user) <--> application(application)
-  application(application) --create--> job
-  subgraph operation_system
-    job(Job) --decomposed by--> process(process management)
-    process(process management) --communicates with--> kernel(kernel)
-    process(process management) --interacts with--> file_system(File System)
-    process(process management) --performs I/O through--> device_drivers(Device Drivers)
-    kernel(Kernel) --manage--> memory(memory management)
-    kernel(Kernel) --manage--> device(device driver)
-    kernel(Kernel) --provides--> device(System Calls)
-    kernel(Kernel) --facilitates--> concurrency_and_synchronization(Concurrency and Synchronization)
-    kernel(Kernel) --facilitates--> ui(User Interface)
+  application --create--> job
+  subgraph operating_system
+    job(Job) --decomposed by--> process(Process Management)
+    process --communicates with--> kernel(Kernel)
+    process --interacts with--> file_system(File System)
+    process --performs I/O through--> device_drivers(Device Drivers)
+    kernel --manages--> memory(Memory Management)
+    kernel --manages--> devices(Devices via Drivers)
+    kernel --provides--> system_calls(System Calls)
+    kernel --facilitates--> concurrency(Concurrency & Synchronization)
   end
-  operation_system(operation system) <--> hardware(hardware)
+  operating_system <--> hardware(Hardware)
 ```
 
 When a job or task is initiated from an application, the operating system's process management component handles the creation of a new process, allocating necessary resources through the kernel, managing memory and CPU usage, coordinating I/O operations through device drivers, and providing an interface for user interaction, all while ensuring the overall stability and efficiency of the system.
 
 ### Process Management
 
-It involves the creation, scheduling, and termination of processes. It also includes inter-process communication and synchronization. Refer to [process management](/blog/software/os/process-management).
+It involves the creation, scheduling, and termination of processes. It also includes inter-process communication and synchronization. Refer to [process management](/os/process-management).
 
 ### memory management
 
@@ -57,23 +56,6 @@ This involves managing network connections and network security.
 ### User Interface Management
 
 This involves managing how users interact with the system, either through a graphical user interface (GUI) or a command-line interface (CLI).
-
-## Example
-
-In this section, let's take a look at the above functions in operating systems and explore them with following steps:
-
-1. user click an app on the computer UI
-2. the app start to run and it need some computation
-3. the data flow to operation system
-4. operation system call hardware (CPU, RAM, I/O) to compute it
-5. data sent back to OS
-6. OS send data back to app
-7. user get what they want in UI
-
-### TODO
-
-mac OS
-
 
 ## Reference
 

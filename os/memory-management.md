@@ -1,13 +1,4 @@
----
-layout: post
-title: memory management
-description: ''
-date: '2021-12-24'
-categories: OS
-note: 
-mermaid: true
-publish: true
----
+# Title
 
 ## Introduction
 
@@ -15,7 +6,7 @@ Memeory management allocates memory efficiently to processes. process comes -> a
 
 I know there are many confusions here. let's focus on memory first. For some reason (refer to [this](https://www.youtube.com/watch?v=qdkxXygc3rE)), we divide memory to equal blocks and we also divide the process into multiple pages; each page can fit into one block and we records where the page stored through mechanisms (refer to [this](https://www.youtube.com/watch?v=qdkxXygc3rE)); once CPU tries to deal with this process, the records tell where the whole pages are and form the process and start to process it and the data flow is as follow:
 
-<div class="mermaid">
+```mermaid
 graph LR
   subgraph Process
     id1(Page 0)
@@ -46,7 +37,7 @@ graph LR
   id13(allocation) --> id12(Page 1)
   id13(allocation) --> id8(Page 2)
   id13(allocation) --> id10(Page 3)
-</div>
+```
 
 ## Why?
 
@@ -88,10 +79,6 @@ Six famous methods: Fixed Partitioning, Dynamic Partitioning, Simple Paging, Sim
 ### Virtual-Memory Paging
 
 ### VirtualMemory Segmentation
-
-## What?
-
-
 
 ## Reference
 

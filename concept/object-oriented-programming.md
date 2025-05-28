@@ -57,7 +57,7 @@ where
 * Encapsulate data: Hides the internal details of a class from other classes, preventing other classes from depending on the implementation details of a class
 * Dependency Injection: Injects dependencies into a class instead of creating them inside the class. By injecting dependencies, you can reduce the coupling between classes, making them easier to test and update
 * Avoid Global State: Global state refers to data that is accessible by multiple classes in a system. Global state can create strong dependencies between classes, making it harder to change one class without affecting others.
-* Use Design Patterns: Design patterns are proven solutions to common programming problems. By using design patterns, you can reduce coupling and improve the maintainability of your code.
+* Use [Design Patterns](concept/design-pattern): Design patterns are proven solutions to common programming problems. By using design patterns, you can reduce coupling and improve the maintainability of your code.
 
 ### Interfaces
 
@@ -235,7 +235,7 @@ animals.forEach(animal => {
 
 It depends on the business logic to determine which one to be used. Think about your database. If we use inheritance, then there will be a new model produced which you can create a table associate with it and you will not need runtime to calculate the logics, of which you cost more space but save more time and vice versa.
 
-For example, the same `Dog` class. If you are running a zoo, you will not need a table for `Dog` and you just need a polymorphism table, `Animal`, to list all the animals with type in that table. But if you are running, a store professionally takes good care about dogs, then you need a `Dog` model inherited from `Animal`.
+For example, the same `Dog` class. If you are running a zoo, you will not need a table for `Dog` and you just need a polymorphism table, `Animal`, to list all the animals with type in that table. But if you are running, a store professionally takes good care of dogs, then you need a `Dog` model inherited from `Animal`.
 
 ## Reference
 

@@ -1,5 +1,7 @@
 ## Purpose
 
+JSON API is a subset of restful api.
+
 Learning JSON API is essential as it allows seamless communication and data exchange between different applications and systems in a standardized, efficient, and platform-independent manner.
 
 ## Concept

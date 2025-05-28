@@ -8,7 +8,7 @@ Object oriented design is used to structure and organize code by modeling **real
 
 ### Step 1: Conduct system design
 
-For example, we want to design a library system. After [system design], we should obtain the objects.
+For example, we want to design a library system. After [system design](concept/system-design), we should obtain the objects.
 
 ### Step 2: Identify the objects
 
@@ -42,7 +42,7 @@ Review and refine the design by considering principles such as encapsulation, in
 
 ### Step 6: Implement the design
 
-Translate the design into actual code using a programming language. Follow the design principles and guidelines to implement the classes, their relationships, and their behaviors. Please refer to [object oriented programming] and [SOLID].
+Translate the design into actual code using a programming language. Follow the design principles and guidelines to implement the classes, their relationships, and their behaviors. Please refer to [object oriented programming](concept/object-oriented-programming).
 
 ### Step 7: Test and iterate
 
